@@ -6,7 +6,7 @@ What exists today is a working prototype. It is offline-evaluated on synthetic d
 
 | Area | Gap today | Needed |
 |---|---|---|
-| LLM measurement | Conversational eval runs only on MockLLM; the Claude zero-shot intent comparator hasn't run | Run `train_intent.py --llm` and `run_eval.py --llm anthropic`; record real latency, cost, cache hit rate and refusal rate |
+| LLM measurement | Conversational eval runs only on MockLLM; the DeepSeek zero-shot intent comparator hasn't run | Run `train_intent.py --llm` and `run_eval.py --llm deepseek`; record real latency, cost, cache hit rate and refusal rate |
 | Identity | Mock IdP with a fixed demo OTP | Integrate the bank IdP (OTP to the registered phone, device binding); rate-limit OTP attempts per number; set the session secret from a KMS |
 | Channel | Twilio-shaped webhook with no signature check; the web chat is public | Validate `X-Twilio-Signature`; use the WhatsApp Business API with approved templates; add per-sender rate limits and abuse protection |
 | Core banking | Read-only DuckDB demo DB; disputes stored in local SQLite | Real core-banking / card-processor APIs for reads and dispute creation (e.g. chargeback reason codes); queue writes with an outbox |

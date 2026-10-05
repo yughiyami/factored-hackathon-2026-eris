@@ -11,8 +11,10 @@ services:
       - key: IRIS_SESSION_SECRET
         generateValue: true
       - key: IRIS_LLM_MODE
-        value: auto            # uses Claude when ANTHROPIC_API_KEY is set, MockLLM otherwise
+        value: auto            # uses the provider below when its key is set, MockLLM otherwise
+      - key: IRIS_LLM_PROVIDER
+        value: deepseek        # deepseek-v4-pro orchestrator + deepseek-flash classifier
       - key: IRIS_DATA_BACKEND
         value: demo
-      - key: ANTHROPIC_API_KEY
+      - key: DEEPSEEK_API_KEY
         sync: false            # set in the Render dashboard; never commit it

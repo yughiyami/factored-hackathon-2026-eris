@@ -4,7 +4,7 @@ PORT ?= 8000
 
 .PHONY: setup data pipeline demo train eval test lint run docker dagster
 
-setup:            ## install the bot + dev tools (add [llm] for Claude, [pipeline] for the data lake)
+setup:            ## install the bot + dev tools (add [llm] for DeepSeek/Claude, [pipeline] for the data lake)
 	$(PY) -m pip install -e ".[llm,dev]"
 
 data:             ## download organizer data from S3 (needs .env with read-only AWS keys)

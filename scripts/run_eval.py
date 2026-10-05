@@ -6,7 +6,7 @@ user behaviour. Every case runs on a fresh runtime (in-memory SQLite, fake clock
 injection / poisoned tool data) against the committed demo DB.
 
 Default LLM mode is MockLLM: no API calls, token costs are ESTIMATED (chars/4 at list prices).
-Use --llm anthropic with ANTHROPIC_API_KEY to measure the real model.
+Use --llm deepseek with DEEPSEEK_API_KEY (or --llm anthropic) to measure the real model.
 
 Outputs eval/results/{summary.json,cases.jsonl} and prints a markdown report.
 """
@@ -246,7 +246,7 @@ def md_table(summ: dict[str, dict]) -> str:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--llm", default="mock", choices=["mock", "anthropic"])
+    ap.add_argument("--llm", default="mock", choices=["mock", "deepseek", "anthropic"])
     ap.add_argument("--only", default=None, help="comma-separated case ids")
     args = ap.parse_args()
     settings = Settings(llm_mode=args.llm, session_secret="eval-secret-0123456789abcdef", test_otp="246810")

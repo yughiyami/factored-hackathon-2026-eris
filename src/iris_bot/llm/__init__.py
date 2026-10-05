@@ -1,4 +1,5 @@
-"""LLM factory: Anthropic when a key is configured (or forced), otherwise the offline MockLLM."""
+"""LLM factory: the configured provider (DeepSeek by default, or Anthropic) when its key is set,
+otherwise the offline MockLLM."""
 from __future__ import annotations
 
 from iris_bot.llm.base import LLMClient, LLMUsage, price
@@ -8,15 +9,20 @@ __all__ = ["LLMClient", "LLMUsage", "MockLLM", "build_llm", "price"]
 
 
 def build_llm(settings, policy=None) -> LLMClient:
-    mode = settings.llm_mode
-    if mode == "mock" or (mode == "auto" and not settings.anthropic_api_key):
-        return MockLLM(settings.orchestrator_model, settings.classifier_model)
-    try:
-        from iris_bot.llm.anthropic_llm import AnthropicLLM
-    except ImportError as exc:  # anthropic extra not installed
-        if mode == "anthropic":
-            raise RuntimeError("pip install 'iris-bot[llm]' to use IRIS_LLM_MODE=anthropic") from exc
-        return MockLLM(settings.orchestrator_model, settings.classifier_model)
+    mode, provider = settings.llm_mode, settings.provider
+    mock = MockLLM(settings.orchestrator_model, settings.classifier_model)
+    if mode == "mock" or (mode == "auto" and not settings.provider_api_key):
+        return mock
     attempts = policy.llm_max_attempts if policy else 3
-    return AnthropicLLM(settings.anthropic_api_key, settings.orchestrator_model, settings.classifier_model,
-                        max_attempts=attempts)
+    try:
+        if provider == "deepseek":
+            from iris_bot.llm.deepseek_llm import DeepSeekLLM
+            return DeepSeekLLM(settings.deepseek_api_key, settings.deepseek_base_url,
+                               settings.orchestrator_model, settings.classifier_model, max_attempts=attempts)
+        from iris_bot.llm.anthropic_llm import AnthropicLLM
+        return AnthropicLLM(settings.anthropic_api_key, settings.orchestrator_model, settings.classifier_model,
+                            max_attempts=attempts)
+    except ImportError as exc:  # llm extra not installed
+        if mode != "auto":
+            raise RuntimeError(f"pip install 'iris-bot[llm]' to use IRIS_LLM_MODE={mode}") from exc
+        return mock

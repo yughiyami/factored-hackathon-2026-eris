@@ -2,7 +2,7 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yughiyami/factored-hackathon-2026-eris)
 
-The deploy uses `render.yaml` (Docker, free plan, committed demo DB, no data lake needed). Set `ANTHROPIC_API_KEY` in Render to use Claude; without it the bot runs on the deterministic MockLLM. On the free plan the service sleeps after 15 minutes idle (first request takes ~1 minute), and the SQLite runtime state (disputes, handoffs, audit log) resets on every restart.
+The deploy uses `render.yaml` (Docker, free plan, committed demo DB, no data lake needed). Set `DEEPSEEK_API_KEY` in Render to use DeepSeek; without it the bot runs on the deterministic MockLLM. On the free plan the service sleeps after 15 minutes idle (first request takes ~1 minute), and the SQLite runtime state (disputes, handoffs, audit log) resets on every restart.
 
 IRIS is a WhatsApp-style assistant for a Latin American bank. It handles one workflow end to end: a customer who **does not recognize a charge** ("no reconozco un cargo") or was **charged a wrong fee** ("cobro indebido"). It works in Spanish and Brazilian Portuguese.
 
@@ -20,13 +20,13 @@ In one conversation, IRIS:
 ## Quickstart (no API key, no data download needed)
 
 ```bash
-pip install -e ".[dev]"            # add ,llm to use Claude
+pip install -e ".[dev]"            # add ,llm to use DeepSeek (or Claude)
 python -m pytest                   # 54 tests, ~2 s, offline
 python -m uvicorn iris_bot.api.app:app --app-dir src --port 8000
 # open http://localhost:8000 — the "Demo" panel lists synthetic customer ids and the demo OTP
 ```
 
-With Docker: `docker compose up --build`. With Claude: copy `.env.example` to `.env`, set `ANTHROPIC_API_KEY` and keep `IRIS_LLM_MODE=auto`. Without a key, the bot uses the deterministic **MockLLM**.
+With Docker: `docker compose up --build`. With DeepSeek: put `DEEPSEEK_API_KEY=...` in `.env` and keep `IRIS_LLM_MODE=auto` (switch to Claude with `IRIS_LLM_PROVIDER=anthropic` + `ANTHROPIC_API_KEY`). Without a key, the bot uses the deterministic **MockLLM**.
 
 | Endpoint | Purpose |
 |---|---|
@@ -58,7 +58,7 @@ src/iris_bot/            the bot
   auth.py                mock trusted IdP: OTP → HS256 session (15 min)
   tools/                 session-scoped banking tools (RPA layer), retries, fault injection, audit
   nlu/                   keyword baseline, TF-IDF+LogReg model, ES/PT detection, slot extraction
-  llm/                   Anthropic client (manual tool loop, caching, fallback) + offline MockLLM
+  llm/                   DeepSeek client (default) + Anthropic client, bounded tool loop, offline MockLLM
   guard.py               prompt-injection guard for user text and tool output
   repository.py          DuckDB over demo DB or data/silver parquet
   storage.py, metrics.py SQLite disputes / handoffs / audit_log; KPI counters

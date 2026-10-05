@@ -7,6 +7,9 @@ from typing import Any, Protocol
 
 # USD per million tokens (input, output). Cache reads bill at 0.1x input, cache writes at 1.25x.
 PRICES: dict[str, tuple[float, float]] = {
+    # DeepSeek at peak-hour cache-miss list price (the real client prices cache hits separately).
+    "deepseek-v4-pro": (1.32, 3.96),
+    "deepseek-flash": (0.30, 1.20),
     "claude-sonnet-5-5": (2.0, 10.0),
     "claude-haiku-4-5": (1.0, 5.0),
     "claude-haiku-4-5-20251001": (1.0, 5.0),

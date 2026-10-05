@@ -79,14 +79,14 @@ The handoff triggers are: `fraud_flag`, `amount_over_threshold`, `customer_reque
 | Concern | Implementation |
 |---|---|
 | Authentication, session expiry, permissions | Deterministic (IdP + tool-layer scoping) |
-| Intent understanding | **Learned** TF-IDF + LogReg; **LLM** (Haiku) zero-shot only when confidence < 0.6 |
-| Which transaction the customer means | **LLM** (Sonnet) read-only tool loop (`list_recent_transactions`, `get_transaction`, `select_transactions`); deterministic matcher as fallback and in baseline mode |
+| Intent understanding | **Learned** TF-IDF + LogReg; **LLM** (DeepSeek Flash) zero-shot only when confidence < 0.6 |
+| Which transaction the customer means | **LLM** (DeepSeek V4 Pro) read-only tool loop (`list_recent_transactions`, `get_transaction`, `select_transactions`); deterministic matcher as fallback and in baseline mode |
 | Eligibility, handoff triggers | Deterministic policy |
 | What is disclosed | Deterministic disclosure filter (`public_transaction`, `render_txn`) |
 | Write actions (`open_dispute`, `handoff_to_human`) | Deterministic, only after explicit confirmation; **never exposed to the LLM** |
 | Verification | Deterministic re-read before reporting |
 | Reply text | Fixed templates in ES / PT-BR (`i18n.py`), so the bot can't make up an amount or a case id |
-| Handoff summary | **LLM** (Haiku) with an output guard; deterministic template as fallback |
+| Handoff summary | **LLM** (DeepSeek Flash) with an output guard; deterministic template as fallback |
 
 ## 5. Tool data contracts (`src/iris_bot/tools/banking.py`)
 

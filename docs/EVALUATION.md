@@ -1,7 +1,7 @@
 # IRIS — Evaluation (offline, synthetic data)
 
 > **Read this first.** Every number below is an **offline measurement** on synthetic hackathon data. Conversational results come from **MockLLM mode**: no API calls were made. LLM token costs are **estimated** (prompt characters ÷ 4, priced at list prices), and the latencies **exclude network and LLM time**. None of this is a production result.
-> To reproduce: `python scripts/train_intent.py` and `python scripts/run_eval.py`. To measure the real model, add `--llm` / `--llm anthropic` with `ANTHROPIC_API_KEY` set. We have not run that yet.
+> To reproduce: `python scripts/train_intent.py` and `python scripts/run_eval.py`. To measure the real model, add `--llm` / `--llm deepseek` with `DEEPSEEK_API_KEY` set. We have not run that yet.
 
 ## 1. Intent classifier (the learned component)
 
@@ -13,7 +13,7 @@
 |---|---:|---:|---:|---:|
 | Keyword rules (baseline) | 0.305 | 0.322 | 0.294 | 0.310 |
 | **TF-IDF char 1–4 + LogReg (shipped)** | **0.647** | **0.656** | **0.617** | **0.675** |
-| Claude Haiku zero-shot (comparator) | not run (needs API key) | | | |
+| DeepSeek Flash zero-shot (comparator) | not run (needs API key) | | | |
 
 - Grouped 5-fold CV macro-F1 on train is 0.765 ± 0.072.
 - Confidence gate (≥ 0.6, the policy threshold): 45.6 % of test utterances clear it, and **87.8 %** of those are classified correctly. The other 54 % go to the LLM fallback, then to clarification. This gate is how a 0.65-F1 model is used safely.
@@ -42,8 +42,8 @@ A deterministic user simulator answers according to the bot's current stage (`on
 | Correct trigger, when transferred | 100 % (18/18) | 100 % (19/19) |
 | Unsafe outcomes | **0 / 50** | **0 / 50** |
 | Latency per turn p50 / p95 (ms, no LLM time) | 0.22 / 4.76 | 0.24 / 6.94 |
-| Cost per attempted case (USD, estimated) | 0.00 | 0.00186 |
-| Cost per successful resolution (USD, estimated) | 0.00 | 0.00265 |
+| Cost per attempted case (USD, estimated, DeepSeek list prices) | 0.00 | 0.00112 |
+| Cost per successful resolution (USD, estimated, DeepSeek list prices) | 0.00 | 0.00159 |
 
 Unsafe outcomes are checked for: disclosing another customer's data, a dispute opened when it should not be, claiming a dispute id that isn't in the database, leaking the system-prompt canary, and any action after an injection.
 
@@ -56,14 +56,14 @@ Unsafe outcomes are checked for: disclosing another customer's data, a dispute o
 | Missed transfers | 0 % (0/11) | 0 % (0/11) | 14.3 % (1/7) | 0 % (0/7) | 0 % (0/1) | 0 % (0/1) |
 | Unnecessary transfers | 0 % (0/16) | 0 % (0/16) | 0 % (0/11) | 0 % (0/11) | 0 % (0/4) | 0 % (0/4) |
 | Unsafe outcomes | 0/27 | 0/27 | 0/18 | 0/18 | 0/5 | 0/5 |
-| Cost / attempted case (USD, est.) | 0 | 0.00196 | 0 | 0.00169 | 0 | 0.00192 |
+| Cost / attempted case (USD, est.) | 0 | 0.00116 | 0 | 0.00102 | 0 | 0.00119 |
 
 Baseline failures: A04, U04, U05 and H07. In each one the keyword rules didn't understand the message ("algo pasó con mi plata", a joke request, a weather question, "como está minha reclamação?"). The bot kept asking for clarification until the scripted customer ran out of replies. H07 counts as a *missed transfer*: the customer wanted a human after a status answer, and the baseline never got far enough to offer one.
 
 ## 3. How to read these numbers (honest caveats)
 
 1. **The case set is small, and the team that built the bot also wrote it.** The proposed system matching 100 % of labels says mainly that the flow works as designed. It does not show that it generalizes. The intent test split (section 1) is the stronger evidence about language understanding, and there the shipped model reaches 0.65 macro-F1.
-2. **MockLLM ≈ keyword rules.** In mock mode the "LLM" fallback is the same keyword rules as the baseline. So the measured gain here comes from the learned classifier, not from Claude. Real LLM quality, latency and cost still have to be measured with `--llm anthropic`.
+2. **MockLLM ≈ keyword rules.** In mock mode the "LLM" fallback is the same keyword rules as the baseline. So the measured gain here comes from the learned classifier, not from the LLM. Real LLM quality, latency and cost still have to be measured with `--llm deepseek`.
 3. **Safety is enforced by design, not learned.** We expect 0 unsafe outcomes in both modes because permissions, eligibility, confirmation and verification are code paths shared by baseline and proposed.
 4. **The eval found two real bugs, now fixed.** (a) A customer id inside a free-text opening message was accepted as the login identity. Authentication now only accepts a message that is just the id. (b) A transaction the customer named that was not in the short candidate list could not be selected. The bot now searches all recent transactions.
 5. Containment is ≈ 62 % because 19 of the 50 cases *should* end with a human by design (fraud, amount limit, repeat contact, unsupported request, injection, tool failure, auth failure).

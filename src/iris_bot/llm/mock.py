@@ -1,6 +1,6 @@
 """Deterministic offline stand-in for the LLM.
 
-Behaviour mirrors the contracts of AnthropicLLM so the agent, tests and eval run without network:
+Behaviour mirrors the contracts of DeepSeekLLM / AnthropicLLM so the agent, tests and eval run without network:
 - classify_intent: keyword rules (returns None when the rules have no match)
 - select_transactions: lists transactions through the same scoped tool executor and ranks them with
   the deterministic matcher
@@ -27,8 +27,8 @@ def _est(model: str, prompt_chars: int, output_chars: int) -> LLMUsage:
 class MockLLM:
     name = "mock"
 
-    def __init__(self, orchestrator_model: str = "claude-sonnet-5-5",
-                 classifier_model: str = "claude-haiku-4-5-20251001"):
+    def __init__(self, orchestrator_model: str = "deepseek-v4-pro",
+                 classifier_model: str = "deepseek-flash"):
         self.orchestrator_model = orchestrator_model
         self.classifier_model = classifier_model
         self._rules = KeywordClassifier()

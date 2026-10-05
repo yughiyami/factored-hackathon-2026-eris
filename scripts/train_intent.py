@@ -3,7 +3,7 @@
 Compares, on the held-out test split (unseen template families):
   1. keyword rules baseline
   2. TF-IDF char n-grams + logistic regression (the shipped model)
-  3. LLM zero-shot (Claude Haiku) - only with --llm and ANTHROPIC_API_KEY set
+  3. LLM zero-shot (DeepSeek Flash by default) - only with --llm and DEEPSEEK_API_KEY set
 Also reports grouped cross-validation on train (GroupKFold by family) and language-detection accuracy.
 Writes models/intent.joblib and models/intent_metrics.json.
 """
@@ -48,7 +48,7 @@ def scores(y_true: list[str], y_pred: list[str], langs: list[str]) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--llm", action="store_true", help="also evaluate Claude zero-shot (needs ANTHROPIC_API_KEY)")
+    ap.add_argument("--llm", action="store_true", help="also evaluate LLM zero-shot (needs the provider API key, DeepSeek by default)")
     args = ap.parse_args()
 
     train, test = load("train"), load("test")
@@ -81,8 +81,8 @@ def main() -> None:
         from iris_bot.config import get_settings
         from iris_bot.llm import build_llm
         s = get_settings()
-        if not s.anthropic_api_key:
-            results["llm_zero_shot"] = "not run: ANTHROPIC_API_KEY not set"
+        if not s.provider_api_key:
+            results["llm_zero_shot"] = f"not run: API key for provider '{s.provider}' not set"
         else:
             llm = build_llm(s)
             preds, cost = [], 0.0
@@ -93,7 +93,7 @@ def main() -> None:
             results["llm_zero_shot"] = scores(yte, preds, lte) | {"model": s.classifier_model,
                                                                   "cost_usd": round(cost, 4)}
     else:
-        results["llm_zero_shot"] = "not run (use --llm with ANTHROPIC_API_KEY)"
+        results["llm_zero_shot"] = "not run (use --llm with DEEPSEEK_API_KEY set)"
 
     lang_pred = [detect_language(x)[0] for x in Xte]
     metrics = {
