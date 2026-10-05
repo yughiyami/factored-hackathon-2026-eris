@@ -36,3 +36,6 @@ eval/results/
 .idea/
 .DS_Store
 .codegraph/
+
+# Local agent tooling
+.atl/
