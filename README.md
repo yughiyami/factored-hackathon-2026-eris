@@ -1,5 +1,7 @@
 # IRIS — AI-first transaction-dispute intake (Factored AI & Data Hackathon 2026, team Eris)
 
+**🔗 Live demo:** https://iris-bot-ta1u.onrender.com — open the "Demo" panel for synthetic customer IDs and the demo OTP. Agent console: [/handoffs](https://iris-bot-ta1u.onrender.com/handoffs) · KPIs: [/metrics](https://iris-bot-ta1u.onrender.com/metrics)
+
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yughiyami/factored-hackathon-2026-eris)
 
 The deploy uses `render.yaml` (Docker, free plan, committed demo DB, no data lake needed). Set `DEEPSEEK_API_KEY` in Render to use DeepSeek; without it the bot runs on the deterministic MockLLM. On the free plan the service sleeps after 15 minutes idle (first request takes ~1 minute), and the SQLite runtime state (disputes, handoffs, audit log) resets on every restart.
