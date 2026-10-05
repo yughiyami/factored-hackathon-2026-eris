@@ -1,5 +1,9 @@
 # IRIS — AI-first transaction-dispute intake (Factored AI & Data Hackathon 2026, team Eris)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/yughiyami/factored-hackathon-2026-eris)
+
+The deploy uses `render.yaml` (Docker, free plan, committed demo DB, no data lake needed). Set `ANTHROPIC_API_KEY` in Render to use Claude; without it the bot runs on the deterministic MockLLM. On the free plan the service sleeps after 15 minutes idle (first request takes ~1 minute), and the SQLite runtime state (disputes, handoffs, audit log) resets on every restart.
+
 IRIS is a WhatsApp-style assistant for a Latin American bank. It handles one workflow end to end: a customer who **does not recognize a charge** ("no reconozco un cargo") or was **charged a wrong fee** ("cobro indebido"). It works in Spanish and Brazilian Portuguese.
 
 In one conversation, IRIS:
