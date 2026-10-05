@@ -1,0 +1,125 @@
+{
+  "as_of_date": "2026-06-18 05:59:41",
+  "roles": {
+    "happy_a": {
+      "customer_id": "CLI-KWVA1AET1RL4",
+      "transaction_id": "TRX-IBEO1HOXIZUKEOQN8W23",
+      "transaction_date": "2026-05-20T21:40:01",
+      "amount": 11.66,
+      "currency": "USD",
+      "amount_usd": 11.66,
+      "merchant_name": "Internet Plus",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 29
+    },
+    "happy_b": {
+      "customer_id": "CLI-7C3AH39C8Q84",
+      "transaction_id": "TRX-YZQ1ZEMBEZ62Q9JVE0CR",
+      "transaction_date": "2026-06-16T20:49:00",
+      "amount": 37.74,
+      "currency": "USD",
+      "amount_usd": 37.74,
+      "merchant_name": "Internet Plus",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 2
+    },
+    "happy_c": {
+      "customer_id": "CLI-KU26RHKMEE2P",
+      "transaction_id": "TRX-FQL4450LCJXELU7FF1D2",
+      "transaction_date": "2026-05-29T19:40:58",
+      "amount": 64049.07,
+      "currency": "ARS",
+      "amount_usd": 183.0,
+      "merchant_name": "Centro Comercial",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 20
+    },
+    "happy_d": {
+      "customer_id": "CLI-PM9BDMJKG7JO",
+      "transaction_id": "TRX-HKWM0N9B82E2FGTXZXH8",
+      "transaction_date": "2026-04-24T22:29:01",
+      "amount": 69956.26,
+      "currency": "ARS",
+      "amount_usd": 199.88,
+      "merchant_name": "Tienda General",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 55
+    },
+    "fee": {
+      "customer_id": "CLI-EAPEFCDC7WPM",
+      "transaction_id": "TRX-J7MW19Z6SM6HPT2PXEWZ",
+      "transaction_date": "2026-04-19T02:20:31",
+      "amount": 101.5,
+      "currency": "USD",
+      "amount_usd": 101.5,
+      "merchant_name": null,
+      "transaction_type": "Adjustment",
+      "transaction_status": "Approved",
+      "age_days": 60
+    },
+    "fraud": {
+      "customer_id": "CLI-WPSXWFB2JHR5",
+      "transaction_id": "TRX-24DIJMMLI2AN8NFDMIYD",
+      "transaction_date": "2026-05-26T17:21:43",
+      "amount": 44.8,
+      "currency": "USD",
+      "amount_usd": 44.8,
+      "merchant_name": "Óptica Visión",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 23
+    },
+    "high": {
+      "customer_id": "CLI-1PGVMHCMGD02",
+      "transaction_id": "TRX-9983A40NQSMSGUFHZZJJ",
+      "transaction_date": "2026-04-21T18:35:09",
+      "amount": 425.25,
+      "currency": "USD",
+      "amount_usd": 425.25,
+      "merchant_name": "Internet Plus",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 58
+    },
+    "old": {
+      "customer_id": "CLI-3HA4ZETZYXRA",
+      "transaction_id": "TRX-C2X52PVYSR07X6RSSJ9H",
+      "transaction_date": "2026-01-14T23:55:10",
+      "amount": 224477.68,
+      "currency": "COP",
+      "amount_usd": 56.12,
+      "merchant_name": "Super Ahorro",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 155
+    },
+    "declined": {
+      "customer_id": "CLI-CE8NJEPJN988",
+      "transaction_id": "TRX-2DY36Z6SHZDCK5DC24ES",
+      "transaction_date": "2026-06-17T07:39:48",
+      "amount": 90.74,
+      "currency": "USD",
+      "amount_usd": 90.74,
+      "merchant_name": "Tienda Don José",
+      "transaction_type": "Purchase",
+      "transaction_status": "Declined",
+      "age_days": 1
+    },
+    "repeat": {
+      "customer_id": "CLI-HBG7IO81TWCT",
+      "transaction_id": "TRX-A3F2PW1T2M8TR6SW7YIL",
+      "transaction_date": "2026-05-15T23:08:14",
+      "amount": 19337.2,
+      "currency": "ARS",
+      "amount_usd": 55.25,
+      "merchant_name": "Mercado Central",
+      "transaction_type": "Purchase",
+      "transaction_status": "Approved",
+      "age_days": 34
+    }
+  }
+}

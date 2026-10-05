@@ -1,0 +1,493 @@
+# Team-generated labeled utterances for the IRIS intent classifier.
+# Structure: intent -> language -> template family -> ["<variant>: <text>", ...]
+#   variant: mx (Mexico), co (Colombia), ar (Argentina) for es; br (Brazil) for pt.
+# A "family" groups utterances that share one phrasing pattern (written together, same template).
+# Families whose name starts with "test_" are held out entirely for the test split, so no phrasing
+# template appears in both train and test (prevents template leakage). Built by
+# scripts/build_intent_splits.py into train.jsonl / test.jsonl.
+
+dispute_unrecognized_charge:
+  es:
+    direct_statement:
+      - "mx: no reconozco un cargo en mi tarjeta"
+      - "co: no reconozco una compra que aparece en mi cuenta"
+      - "ar: no reconozco un consumo de la tarjeta"
+      - "mx: hay un cargo que yo no hice"
+      - "co: me aparece una compra que no hice"
+      - "ar: tengo un débito que no reconozco"
+    narrative:
+      - "mx: revisando mi estado de cuenta vi un cargo de una tienda donde nunca he comprado"
+      - "co: ayer me llegó una notificación de una compra pero yo no estaba usando la tarjeta"
+      - "ar: me fijé en el resumen y hay un consumo en un comercio que no conozco"
+      - "mx: oiga, me cobraron algo en un lugar que ni conozco"
+      - "co: alguien usó mi tarjeta, hay una compra que no autoricé"
+    question_form:
+      - "mx: ¿por qué tengo un cargo que no reconozco?"
+      - "co: ¿qué es esta compra que me aparece si yo no la hice?"
+      - "ar: ¿me pueden explicar un consumo que no hice?"
+      - "mx: ¿cómo desconozco un cargo de mi tarjeta?"
+      - "co: ¿cómo reclamo una compra que no hice?"
+    test_dispute_request:
+      - "mx: quiero desconocer un cargo de mi tarjeta de crédito"
+      - "co: necesito poner un reclamo por un cobro que no es mío"
+      - "ar: quiero hacer el desconocimiento de una compra"
+      - "mx: ayúdame a disputar un cargo que no hice por favor"
+      - "co: deseo abrir una disputa porque no reconozco una transacción"
+  pt:
+    direct_statement:
+      - "br: não reconheço uma compra no meu cartão"
+      - "br: tem uma cobrança que eu não fiz"
+      - "br: apareceu um débito que não reconheço"
+      - "br: não fiz essa compra no cartão"
+      - "br: não reconheço esse lançamento na fatura"
+      - "br: tem uma transação estranha na minha conta"
+    narrative:
+      - "br: olhando a fatura vi uma compra numa loja que nunca fui"
+      - "br: ontem recebi notificação de compra mas eu não estava usando o cartão"
+      - "br: alguém usou meu cartão, tem uma compra que não autorizei"
+      - "br: chegou uma cobrança de um lugar que eu nem conheço"
+      - "br: minha fatura veio com um valor de uma loja desconhecida"
+    question_form:
+      - "br: por que tem uma compra que eu não reconheço?"
+      - "br: o que é essa cobrança se eu não comprei nada?"
+      - "br: como faço para contestar uma compra que não fiz?"
+      - "br: vocês podem me explicar esse débito estranho?"
+      - "br: como cancelo uma compra que não fui eu que fiz?"
+    test_dispute_request:
+      - "br: quero contestar uma compra do meu cartão de crédito"
+      - "br: preciso abrir uma contestação de uma transação que não é minha"
+      - "br: quero fazer uma reclamação de compra não reconhecida"
+      - "br: me ajuda a contestar um lançamento que não fiz"
+      - "br: gostaria de abrir uma disputa por uma compra desconhecida"
+
+dispute_wrong_fee:
+  es:
+    direct_statement:
+      - "mx: me hicieron un cobro indebido"
+      - "co: me cobraron una comisión que no corresponde"
+      - "ar: me cobraron de más en la tarjeta"
+      - "mx: me cobraron dos veces la misma compra"
+      - "co: me están cobrando una cuota de manejo que no debería"
+      - "ar: me debitaron una comisión de mantenimiento indebida"
+    narrative:
+      - "mx: pagué a tiempo y aun así me cargaron intereses moratorios"
+      - "co: cancelé el seguro y me lo siguen cobrando cada mes"
+      - "ar: me cobraron el costo de mantenimiento aunque tengo la cuenta bonificada"
+      - "mx: en mi estado de cuenta aparece una comisión por retiro que no debía pagar"
+      - "co: me descontaron una tarifa por transferencia que siempre ha sido gratis"
+    question_form:
+      - "mx: ¿por qué me cobraron esta comisión?"
+      - "co: ¿por qué me sale doble cobro en la misma compra?"
+      - "ar: ¿qué es este cargo por mantenimiento de cuenta?"
+      - "mx: ¿me pueden devolver una comisión mal cobrada?"
+      - "co: ¿cómo reclamo un cobro de más?"
+    test_refund_request:
+      - "mx: quiero que me regresen un cobro que no procede"
+      - "co: solicito el reembolso de una tarifa mal aplicada"
+      - "ar: pido que me reintegren una comisión cobrada por error"
+      - "mx: necesito que reviertan un cargo duplicado"
+      - "co: exijo la devolución de la cuota que me cobraron sin razón"
+  pt:
+    direct_statement:
+      - "br: me cobraram uma taxa indevida"
+      - "br: fui cobrado duas vezes pela mesma compra"
+      - "br: cobraram a mais no meu cartão"
+      - "br: estão cobrando uma tarifa que não deveriam"
+      - "br: veio uma anuidade que eu não contratei"
+      - "br: cobraram uma tarifa de manutenção indevida"
+    narrative:
+      - "br: paguei em dia e mesmo assim cobraram juros de atraso"
+      - "br: cancelei o seguro e continuam cobrando todo mês"
+      - "br: minha conta é isenta mas veio tarifa de manutenção"
+      - "br: na fatura apareceu uma taxa de saque que eu não devia pagar"
+      - "br: descontaram uma taxa de transferência que sempre foi grátis"
+    question_form:
+      - "br: por que cobraram essa taxa?"
+      - "br: por que aparece cobrança dupla na mesma compra?"
+      - "br: que tarifa é essa na minha conta?"
+      - "br: vocês podem devolver uma taxa cobrada errado?"
+      - "br: como reclamo de uma cobrança a mais?"
+    test_refund_request:
+      - "br: quero o estorno de uma cobrança indevida"
+      - "br: solicito o reembolso de uma tarifa aplicada errado"
+      - "br: peço a devolução da taxa cobrada por engano"
+      - "br: preciso que estornem uma cobrança duplicada"
+      - "br: exijo a devolução da anuidade cobrada sem motivo"
+
+dispute_status:
+  es:
+    status_question:
+      - "mx: ¿cómo va mi reclamo?"
+      - "co: ¿en qué estado está mi disputa?"
+      - "ar: ¿cómo va el reclamo que hice?"
+      - "mx: quiero saber el estatus de mi aclaración"
+      - "co: ¿ya resolvieron mi queja?"
+      - "ar: ¿hay novedades de mi reclamo?"
+    follow_up:
+      - "mx: hace una semana levanté un reclamo y no me han dicho nada"
+      - "co: puse una queja por un cobro y quiero saber qué pasó"
+      - "ar: hice un reclamo por un consumo y sigo esperando respuesta"
+      - "mx: ya había reportado un cargo, ¿en qué quedó?"
+      - "co: les escribí por una disputa y no he tenido respuesta"
+    case_number:
+      - "mx: tengo un número de caso y quiero saber cómo va"
+      - "co: quiero consultar mi caso de disputa"
+      - "ar: necesito el seguimiento de mi caso"
+      - "mx: dame el estado de mi folio de aclaración"
+      - "co: consultar radicado de mi reclamo"
+    test_resolution_eta:
+      - "mx: ¿cuándo me van a resolver la disputa que abrí?"
+      - "co: ¿para cuándo tienen respuesta de mi reclamo?"
+      - "ar: ¿cuánto falta para que resuelvan mi caso?"
+      - "mx: ¿ya me devolvieron el dinero del cargo que reclamé?"
+      - "co: ¿mi reclamo ya fue aprobado?"
+  pt:
+    status_question:
+      - "br: como está minha contestação?"
+      - "br: qual o status da minha reclamação?"
+      - "br: em que pé está minha disputa?"
+      - "br: quero saber o andamento do meu pedido de contestação"
+      - "br: já resolveram minha reclamação?"
+      - "br: tem novidade da minha contestação?"
+    follow_up:
+      - "br: abri uma reclamação semana passada e ninguém me respondeu"
+      - "br: fiz uma contestação de compra e quero saber o que aconteceu"
+      - "br: reclamei de uma cobrança e continuo esperando"
+      - "br: já tinha reportado uma compra, como ficou?"
+      - "br: mandei mensagem sobre uma disputa e não tive retorno"
+    case_number:
+      - "br: tenho o número do protocolo e quero saber como está"
+      - "br: quero consultar meu caso de contestação"
+      - "br: preciso acompanhar meu protocolo"
+      - "br: me passa o status do meu protocolo de reclamação"
+      - "br: consultar protocolo da minha disputa"
+    test_resolution_eta:
+      - "br: quando vão resolver a contestação que abri?"
+      - "br: qual o prazo para a resposta da minha reclamação?"
+      - "br: quanto falta para resolverem meu caso?"
+      - "br: já devolveram o dinheiro da compra que contestei?"
+      - "br: minha contestação já foi aprovada?"
+
+card_block_request:
+  es:
+    block_direct:
+      - "mx: quiero bloquear mi tarjeta"
+      - "co: necesito bloquear la tarjeta débito"
+      - "ar: bloqueen mi tarjeta por favor"
+      - "mx: bloqueo de tarjeta urgente"
+      - "co: quiero bloquear mi tarjeta de crédito ya"
+      - "ar: necesito dar de baja la tarjeta"
+    lost_stolen:
+      - "mx: me robaron la cartera con la tarjeta"
+      - "co: perdí mi tarjeta en el bus"
+      - "ar: me afanaron la billetera con las tarjetas"
+      - "mx: se me perdió la tarjeta, ¿qué hago?"
+      - "co: me robaron el celular y la tarjeta"
+    freeze:
+      - "mx: congelen mi tarjeta mientras la encuentro"
+      - "co: quiero apagar temporalmente la tarjeta"
+      - "ar: pausen la tarjeta hasta que la encuentre"
+      - "mx: desactiven mi plástico"
+      - "co: suspendan mi tarjeta por seguridad"
+    test_cancel_card:
+      - "mx: cancelen mi tarjeta ahora mismo que la extravié"
+      - "co: anulen la tarjeta que me la clonaron"
+      - "ar: den de baja el plástico que me lo robaron"
+      - "mx: inhabiliten mi tarjeta, creo que la copiaron"
+      - "co: no quiero que nadie use mi tarjeta, deténganla"
+  pt:
+    block_direct:
+      - "br: quero bloquear meu cartão"
+      - "br: preciso bloquear o cartão de débito"
+      - "br: bloqueiem meu cartão por favor"
+      - "br: bloqueio de cartão urgente"
+      - "br: quero bloquear meu cartão de crédito agora"
+      - "br: preciso cancelar o cartão"
+    lost_stolen:
+      - "br: roubaram minha carteira com o cartão"
+      - "br: perdi meu cartão no ônibus"
+      - "br: furtaram minha bolsa com os cartões"
+      - "br: perdi o cartão, o que faço?"
+      - "br: roubaram meu celular e o cartão"
+    freeze:
+      - "br: congelem meu cartão enquanto eu procuro"
+      - "br: quero desligar temporariamente o cartão"
+      - "br: pausem o cartão até eu encontrar"
+      - "br: desativem meu cartão"
+      - "br: suspendam meu cartão por segurança"
+    test_cancel_card:
+      - "br: cancelem meu cartão agora que eu perdi"
+      - "br: anulem o cartão que clonaram"
+      - "br: deem baixa no cartão que foi roubado"
+      - "br: inabilitem meu cartão, acho que copiaram"
+      - "br: não quero que ninguém use meu cartão, travem ele"
+
+balance_inquiry:
+  es:
+    direct:
+      - "mx: ¿cuál es mi saldo?"
+      - "co: quiero consultar mi saldo"
+      - "ar: ¿cuánta plata tengo en la cuenta?"
+      - "mx: ¿cuánto tengo disponible?"
+      - "co: dime el saldo de mi cuenta de ahorros"
+      - "ar: ¿cuánto me queda en la caja de ahorro?"
+    card_balance:
+      - "mx: ¿cuánto debo en la tarjeta de crédito?"
+      - "co: ¿cuál es el cupo disponible de mi tarjeta?"
+      - "ar: ¿cuánto tengo de saldo en la tarjeta?"
+      - "mx: ¿cuál es mi límite disponible?"
+      - "co: quiero saber cuánto he gastado de mi cupo"
+    casual:
+      - "mx: oye, ¿cómo ando de lana?"
+      - "co: parce, ¿cuánto hay en mi cuenta?"
+      - "ar: che, ¿cuánto tengo?"
+      - "mx: chécame el saldo porfa"
+      - "co: ¿me regala el saldo?"
+    test_products_overview:
+      - "mx: muéstrame mis cuentas y cuánto tiene cada una"
+      - "co: quiero ver el resumen de mis productos"
+      - "ar: pasame los saldos de todos mis productos"
+      - "mx: ¿qué balance tienen mis cuentas?"
+      - "co: ¿cuánto dinero tengo en total?"
+  pt:
+    direct:
+      - "br: qual é meu saldo?"
+      - "br: quero consultar meu saldo"
+      - "br: quanto dinheiro tenho na conta?"
+      - "br: quanto tenho disponível?"
+      - "br: me diz o saldo da poupança"
+      - "br: quanto sobrou na conta corrente?"
+    card_balance:
+      - "br: quanto devo no cartão de crédito?"
+      - "br: qual o limite disponível do meu cartão?"
+      - "br: quanto tenho de saldo no cartão?"
+      - "br: qual meu limite disponível?"
+      - "br: quero saber quanto já gastei do limite"
+    casual:
+      - "br: e aí, como tá minha grana?"
+      - "br: quanto tem na minha conta?"
+      - "br: me fala quanto eu tenho"
+      - "br: confere meu saldo aí pfv"
+      - "br: me passa o saldo?"
+    test_products_overview:
+      - "br: me mostra minhas contas e quanto tem em cada uma"
+      - "br: quero ver o resumo dos meus produtos"
+      - "br: me passa os saldos de todos os meus produtos"
+      - "br: qual o balanço das minhas contas?"
+      - "br: quanto dinheiro eu tenho no total?"
+
+credit_eligibility:
+  es:
+    loan:
+      - "mx: quiero pedir un préstamo personal"
+      - "co: ¿puedo sacar un crédito de libre inversión?"
+      - "ar: quiero un préstamo, ¿me lo dan?"
+      - "mx: ¿soy candidato para un crédito?"
+      - "co: ¿me aprueban un préstamo?"
+      - "ar: ¿cuánto me prestan?"
+    limit_increase:
+      - "mx: quiero un aumento de línea de crédito"
+      - "co: necesito un aumento de cupo en la tarjeta"
+      - "ar: quiero que me suban el límite"
+      - "mx: ¿me pueden subir el límite de la tarjeta?"
+      - "co: ¿cómo pido más cupo?"
+    mortgage:
+      - "mx: quiero información de crédito hipotecario"
+      - "co: ¿puedo pedir un crédito de vivienda?"
+      - "ar: ¿tienen créditos hipotecarios?"
+      - "mx: quiero financiamiento para un carro"
+      - "co: ¿me financian una moto?"
+    test_preapproval:
+      - "mx: ¿tengo algún crédito preaprobado?"
+      - "co: ¿qué ofertas de crédito tengo disponibles?"
+      - "ar: ¿califico para una tarjeta nueva?"
+      - "mx: ¿me alcanza el historial para una tarjeta oro?"
+      - "co: quiero saber si me prestan con mi puntaje"
+  pt:
+    loan:
+      - "br: quero pedir um empréstimo pessoal"
+      - "br: posso fazer um empréstimo?"
+      - "br: quero um empréstimo, vocês aprovam?"
+      - "br: sou elegível para crédito?"
+      - "br: vocês me aprovam um empréstimo?"
+      - "br: quanto vocês me emprestam?"
+    limit_increase:
+      - "br: quero aumento de limite do cartão"
+      - "br: preciso de mais limite no cartão"
+      - "br: quero que aumentem meu limite"
+      - "br: vocês podem subir o limite do cartão?"
+      - "br: como peço mais limite?"
+    mortgage:
+      - "br: quero informação de financiamento imobiliário"
+      - "br: posso pedir financiamento de casa?"
+      - "br: vocês têm crédito imobiliário?"
+      - "br: quero financiar um carro"
+      - "br: vocês financiam moto?"
+    test_preapproval:
+      - "br: tenho algum crédito pré-aprovado?"
+      - "br: quais ofertas de crédito eu tenho?"
+      - "br: eu me qualifico para um cartão novo?"
+      - "br: meu histórico dá para um cartão gold?"
+      - "br: quero saber se me emprestam com meu score"
+
+talk_to_human:
+  es:
+    agent:
+      - "mx: quiero hablar con un asesor"
+      - "co: comuníqueme con un agente"
+      - "ar: pasame con un operador"
+      - "mx: necesito un ejecutivo"
+      - "co: quiero que me atienda un asesor"
+      - "ar: quiero hablar con alguien del banco"
+    human:
+      - "mx: quiero hablar con una persona real"
+      - "co: no quiero un robot, quiero un humano"
+      - "ar: dejame hablar con una persona"
+      - "mx: ¿hay alguien de carne y hueso?"
+      - "co: páseme con un ser humano"
+    frustration:
+      - "mx: ya me cansé del bot, quiero una persona"
+      - "co: esto no sirve, comuníqueme con alguien"
+      - "ar: no me entendés, quiero hablar con alguien"
+      - "mx: el bot no me ayuda, pásame con alguien"
+      - "co: no me resolviste nada, quiero un asesor"
+    test_call_me:
+      - "mx: que me llame alguien del banco por favor"
+      - "co: prefiero que me contacte un funcionario"
+      - "ar: necesito que me atienda personal del banco"
+      - "mx: transfiéreme con atención al cliente"
+      - "co: quiero que un especialista revise mi caso"
+  pt:
+    agent:
+      - "br: quero falar com um atendente"
+      - "br: me transfere para um atendente"
+      - "br: me passa para um operador"
+      - "br: preciso de um gerente"
+      - "br: quero ser atendido por um atendente"
+      - "br: quero falar com alguém do banco"
+    human:
+      - "br: quero falar com uma pessoa de verdade"
+      - "br: não quero robô, quero um humano"
+      - "br: me deixa falar com uma pessoa"
+      - "br: tem alguém de carne e osso aí?"
+      - "br: me passa para um ser humano"
+    frustration:
+      - "br: cansei do robô, quero uma pessoa"
+      - "br: isso não funciona, me passa para alguém"
+      - "br: você não me entende, quero falar com alguém"
+      - "br: o bot não ajuda, me transfere"
+      - "br: não resolveu nada, quero um atendente"
+    test_call_me:
+      - "br: quero que alguém do banco me ligue"
+      - "br: prefiro que um funcionário entre em contato"
+      - "br: preciso ser atendido pela equipe do banco"
+      - "br: me transfere para o atendimento ao cliente"
+      - "br: quero que um especialista veja meu caso"
+
+greeting:
+  es:
+    hello:
+      - "mx: hola"
+      - "co: buenas"
+      - "ar: hola, ¿qué tal?"
+      - "mx: buenos días"
+      - "co: buenas tardes"
+      - "ar: buenas noches"
+    hello_casual:
+      - "mx: qué onda"
+      - "co: quiubo"
+      - "ar: buenas, che"
+      - "mx: hola hola"
+      - "co: holi"
+    hello_polite:
+      - "mx: buen día, ¿cómo están?"
+      - "co: muy buenas tardes"
+      - "ar: hola, buen día"
+      - "mx: saludos"
+      - "co: hola, ¿cómo le va?"
+    test_hello_bot:
+      - "mx: hola bot"
+      - "co: hola, ¿hay alguien ahí?"
+      - "ar: holaa"
+      - "mx: buenas, ¿me escuchan?"
+      - "co: hola, buenas noches a todos"
+  pt:
+    hello:
+      - "br: olá"
+      - "br: oi"
+      - "br: oi, tudo bem?"
+      - "br: bom dia"
+      - "br: boa tarde"
+      - "br: boa noite"
+    hello_casual:
+      - "br: e aí"
+      - "br: opa"
+      - "br: fala aí"
+      - "br: oi oi"
+      - "br: oie"
+    hello_polite:
+      - "br: bom dia, como vão?"
+      - "br: muito boa tarde"
+      - "br: olá, bom dia"
+      - "br: saudações"
+      - "br: oi, como vai?"
+    test_hello_bot:
+      - "br: oi robô"
+      - "br: olá, tem alguém aí?"
+      - "br: oiii"
+      - "br: oi, estão me ouvindo?"
+      - "br: olá, boa noite a todos"
+
+out_of_scope:
+  es:
+    chit_chat:
+      - "mx: ¿cómo va a estar el clima mañana?"
+      - "co: cuéntame un chiste"
+      - "ar: ¿quién ganó el partido de ayer?"
+      - "mx: ¿me recomiendas una película?"
+      - "co: ¿cuál es la capital de Francia?"
+      - "ar: ¿qué hora es en Tokio?"
+    other_tasks:
+      - "mx: escríbeme un poema de amor"
+      - "co: ¿me ayudas con la tarea de matemáticas?"
+      - "ar: pasame una receta de empanadas"
+      - "mx: ¿cómo instalo whatsapp en la computadora?"
+      - "co: tradúceme esto al inglés"
+    unrelated_services:
+      - "mx: quiero pedir una pizza"
+      - "co: ¿dónde queda la notaría más cercana?"
+      - "ar: necesito un turno con el médico"
+      - "mx: ¿venden boletos de avión?"
+      - "co: quiero cambiar mi plan de celular"
+    test_misc:
+      - "mx: ¿cuánto mide el monte Everest?"
+      - "co: ¿qué opinas de la inteligencia artificial?"
+      - "ar: recomendame una serie para el finde"
+      - "mx: ¿cómo se hace un pastel de chocolate?"
+      - "co: ¿cuál es el mejor equipo de fútbol?"
+  pt:
+    chit_chat:
+      - "br: como vai estar o tempo amanhã?"
+      - "br: me conta uma piada"
+      - "br: quem ganhou o jogo ontem?"
+      - "br: me indica um filme?"
+      - "br: qual é a capital da França?"
+      - "br: que horas são em Tóquio?"
+    other_tasks:
+      - "br: escreve um poema de amor"
+      - "br: me ajuda com a lição de matemática?"
+      - "br: me passa uma receita de coxinha"
+      - "br: como instalo o whatsapp no computador?"
+      - "br: traduz isso para o inglês"
+    unrelated_services:
+      - "br: quero pedir uma pizza"
+      - "br: onde fica o cartório mais perto?"
+      - "br: preciso marcar consulta no médico"
+      - "br: vocês vendem passagem de avião?"
+      - "br: quero mudar meu plano de celular"
+    test_misc:
+      - "br: qual a altura do monte Everest?"
+      - "br: o que você acha da inteligência artificial?"
+      - "br: me indica uma série pro fim de semana"
+      - "br: como se faz um bolo de chocolate?"
+      - "br: qual é o melhor time de futebol?"

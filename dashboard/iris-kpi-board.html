@@ -1,0 +1,413 @@
+<title>IRIS KPI Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: operations board. Summary tiles first, then "why" (drivers), then "where" (reasons, trend), then disputes and flow gaps. */
+:root {
+  --bg: #f4f5f3; --surface: #fcfcfb; --ink: #121417; --ink-2: #4d5258; --muted: #868b90;
+  --line: #e1e2dd; --axis: #c3c4bd; --accent: #2a78d6; --accent-soft: #e3eefb;
+  --seq-1: #cde2fb; --seq-2: #86b6ef; --seq-3: #3987e5; --seq-4: #1c5cab; --seq-5: #0d366b;
+  --good: #0c8a0c; --warn: #b77a00; --serious: #c8582c; --crit: #c43434;
+  --good-bg: #e4f3e4; --warn-bg: #fbf0d6; --crit-bg: #f9e2e2;
+  --series-2: #eb6834;
+  --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1012; --surface: #1a1b1d; --ink: #f4f4f2; --ink-2: #c3c4bd; --muted: #8d9196;
+    --line: #2c2d30; --axis: #3c3d40; --accent: #4d93ea; --accent-soft: #1b2a3d;
+    --seq-1: #1a2c45; --seq-2: #184f95; --seq-3: #2a78d6; --seq-4: #5598e7; --seq-5: #9ec5f4;
+    --good: #2fbf2f; --warn: #f0b429; --serious: #ec835a; --crit: #ef6b6b;
+    --good-bg: #13301a; --warn-bg: #3a2c0c; --crit-bg: #3d1717; --series-2: #d95926;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1012; --surface: #1a1b1d; --ink: #f4f4f2; --ink-2: #c3c4bd; --muted: #8d9196;
+  --line: #2c2d30; --axis: #3c3d40; --accent: #4d93ea; --accent-soft: #1b2a3d;
+  --seq-1: #1a2c45; --seq-2: #184f95; --seq-3: #2a78d6; --seq-4: #5598e7; --seq-5: #9ec5f4;
+  --good: #2fbf2f; --warn: #f0b429; --serious: #ec835a; --crit: #ef6b6b;
+  --good-bg: #13301a; --warn-bg: #3a2c0c; --crit-bg: #3d1717; --series-2: #d95926;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--font); margin: 0; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; gap: 28px; }
+header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 24px; }
+h1 { font-size: 26px; line-height: 1.15; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: 17px; margin: 0; text-wrap: balance; }
+.eyebrow { font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sub { color: var(--ink-2); margin: 6px 0 0; max-width: 70ch; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 12px/1 var(--font); padding: 6px 9px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); white-space: nowrap; }
+section { display: grid; gap: 14px; }
+.section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 10px; }
+.section-head p { margin: 4px 0 0; color: var(--ink-2); max-width: 75ch; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; min-width: 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 14px 10px; display: grid; gap: 6px; min-width: 0; }
+.tile.star { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.tile .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.tile .name { font-weight: 600; font-size: 13px; }
+.tile .value { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.tile .note { color: var(--ink-2); font-size: 12px; min-height: 2.6em; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font: 600 11px/1 var(--font); padding: 4px 7px; border-radius: 6px; white-space: nowrap; }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.p-star { color: var(--accent); background: var(--accent-soft); }
+.p-good { color: var(--good); background: var(--good-bg); }
+.p-warn { color: var(--warn); background: var(--warn-bg); }
+.p-crit { color: var(--crit); background: var(--crit-bg); }
+.p-muted { color: var(--ink-2); background: var(--bg); }
+svg text { font-family: var(--font); fill: var(--muted); font-size: 11px; }
+.spark { width: 100%; height: 38px; display: block; }
+.seg { display: inline-flex; flex-wrap: wrap; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 3px; gap: 2px; }
+.seg button { font: 500 12px/1 var(--font); border: 0; background: transparent; color: var(--ink-2); padding: 7px 10px; border-radius: 6px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+.seg button:focus-visible, .tbl-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chart-box { position: relative; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--surface); font-size: 12px; padding: 7px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); }
+.tip b { font-weight: 600; }
+.matrix { display: grid; grid-template-columns: auto 1fr 1fr; gap: 6px; align-items: stretch; }
+.matrix .lab { font: 500 11px/1.3 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; }
+.matrix .lab.col { justify-content: center; padding-bottom: 2px; }
+.cell { border-radius: 8px; padding: 12px; min-height: 92px; display: grid; align-content: space-between; gap: 6px; }
+.cell .n { font-size: 20px; font-weight: 600; }
+.cell .c { font-size: 12px; }
+.cell .tag { font: 600 11px/1.2 var(--font); }
+.callout { border-left: 3px solid var(--crit); padding: 2px 0 2px 12px; color: var(--ink-2); margin: 0; }
+.tbl-scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th { font: 500 11px/1.2 var(--mono); text-transform: uppercase; letter-spacing: .05em; color: var(--muted); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: 12.5px; }
+tr:last-child td { border-bottom: 0; }
+.bar { height: 8px; border-radius: 0 4px 4px 0; background: var(--accent); min-width: 2px; }
+.bar-track { width: 100%; min-width: 80px; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; counter-reset: stage; }
+.stage { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; display: grid; gap: 6px; align-content: start; }
+.stage h3 { font-size: 13px; margin: 0; }
+.stage .k { font-size: 12px; color: var(--ink-2); }
+.stage .k b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.stacked { display: flex; height: 26px; border-radius: 6px; overflow: hidden; gap: 2px; background: var(--surface); }
+.stacked div { height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+footer { color: var(--muted); font-size: 12px; display: grid; gap: 4px; }
+@media (prefers-reduced-motion: no-preference) { .bar { transition: width .3s ease; } }
+@media (max-width: 520px) { h1 { font-size: 22px; } .tile .value { font-size: 26px; } .matrix .lab { font-size: 10px; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <div class="eyebrow">LATAM Bank · contact center · Jun 2023 – Jun 2026</div>
+      <h1>IRIS KPI Board</h1>
+      <p class="sub">Baseline for the AI-first dispute-intake bot. The KPIs were picked by evidence: each one is tied to a stage of the IRIS flow and tested for a real effect on satisfaction after controlling for contact reason and resolution.</p>
+    </div>
+    <div class="meta">
+      <span class="chip" id="m-n"></span>
+      <span class="chip" id="m-c"></span>
+      <span class="chip">Synthetic data · offline</span>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-kpis">
+    <div class="section-head"><div><h2 id="h-kpis">Selected KPIs</h2><p>Sparklines show monthly values from Jul 2023 to May 2026.</p></div></div>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section aria-labelledby="h-why">
+    <div class="section-head"><div><h2 id="h-why">What actually moves satisfaction</h2>
+      <p>CSAT is decided by resolution: 3.0 when solved, 2.0 when not, no matter whether the case was escalated. Escalation today goes to the wrong cases.</p></div></div>
+    <div class="grid-2">
+      <div class="panel" style="display:grid;gap:14px">
+        <div><div class="eyebrow">Resolution × escalation · contacts and mean CSAT (1–4)</div></div>
+        <div class="matrix" id="matrix"></div>
+        <p class="callout" id="matrix-callout"></p>
+      </div>
+      <div class="panel" style="display:grid;gap:12px">
+        <div><div class="eyebrow">KPI scorecard · CSAT link before and after adjustment</div>
+          <p class="sub" style="font-size:13px;margin-top:6px">Raw links for handling time, follow-up and sentiment disappear inside reason × resolution groups. They were borrowed from FCR.</p></div>
+        <div class="tbl-scroll" tabindex="0" aria-label="KPI scorecard table"><table id="score"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-where">
+    <div class="section-head">
+      <div><h2 id="h-where">Where to act</h2><p>Complaints are 17% of contacts and have the lowest FCR, the lowest CSAT and the longest cycle.</p></div>
+      <div class="seg" role="group" aria-label="Metric" id="metric-seg"></div>
+    </div>
+    <div class="grid-2">
+      <div class="panel" style="display:grid;gap:10px">
+        <div class="eyebrow" id="reason-title">By contact reason</div>
+        <div class="tbl-scroll" tabindex="0" aria-label="KPI by contact reason"><table id="reasons"></table></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <div class="eyebrow" id="trend-title">Monthly trend</div>
+        <div class="chart-box" id="trend-box"><svg id="trend" role="img" aria-label="Monthly KPI trend" style="width:100%;height:240px;display:block"></svg><div class="tip" id="tip" hidden></div></div>
+        <p class="sub" style="font-size:12px;margin:0">Flat lines are a finding, not a rendering issue: the KPIs do not drift over three years.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-disp">
+    <div class="section-head"><div><h2 id="h-disp">Dispute and complaint operations</h2><p>These are the cases the bot takes in. Most are still open, and a third have no assigned agent.</p></div></div>
+    <div class="tiles" id="disp-tiles"></div>
+    <div class="grid-2">
+      <div class="panel" style="display:grid;gap:10px">
+        <div class="eyebrow">Case status · 67,095 cases</div>
+        <div class="stacked" id="status-bar" role="img" aria-label="Case status distribution"></div>
+        <div class="legend" id="status-legend"></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <div class="eyebrow">By subcategory</div>
+        <div class="tbl-scroll" tabindex="0" aria-label="Disputes by subcategory"><table id="disp-table"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-flow">
+    <div class="section-head"><div><h2 id="h-flow">IRIS flow coverage</h2><p>The KPI each stage owns. Stages marked "Instrument" have no data today, so the bot must log them itself.</p></div></div>
+    <div class="flow" id="flow"></div>
+  </section>
+
+  <section aria-labelledby="h-models">
+    <div class="section-head"><div><h2 id="h-models">Models vs. one-variable baselines</h2><p>LightGBM on an out-of-time test set (2026). None beats the baseline. The data follows simple rules, so the learned component belongs in intent detection, not KPI prediction.</p></div></div>
+    <div class="panel"><div class="tbl-scroll" tabindex="0" aria-label="Model results"><table id="models"></table></div></div>
+  </section>
+
+  <footer>
+    <span>Source: Factored Datathon 2026 LATAM Bank dataset v1.0.0 (synthetic). Pipeline: bronze → silver (data contracts) → gold, repo <span style="font-family:var(--mono)">factored-hackathon-2026-eris</span>.</span>
+    <span>All figures are offline measurements. CSAT uses the observed 1–4 scale; top-2 = score ≥ 3. Cycle time excludes contacts with unknown handling time.</span>
+  </footer>
+</div>
+
+<script>
+const D = {"monthly": [{"m": "2023-07", "n": 19261, "fcr": 0.7668, "csat": 2.7525, "csat_top2": 0.6843, "redir": 0.1029, "cycle_s": 420.8832, "missed": 0.8953, "unnecessary": 0.7629, "repeat30": 0.0246}, {"m": "2023-08", "n": 19729, "fcr": 0.7661, "csat": 2.764, "csat_top2": 0.6899, "redir": 0.0967, "cycle_s": 418.6455, "missed": 0.9029, "unnecessary": 0.7652, "repeat30": 0.0254}, {"m": "2023-09", "n": 18349, "fcr": 0.7655, "csat": 2.763, "csat_top2": 0.6911, "redir": 0.102, "cycle_s": 421.3723, "missed": 0.8996, "unnecessary": 0.7691, "repeat30": 0.0278}, {"m": "2023-10", "n": 19168, "fcr": 0.7727, "csat": 2.7703, "csat_top2": 0.6868, "redir": 0.1014, "cycle_s": 419.2352, "missed": 0.9036, "unnecessary": 0.7838, "repeat30": 0.0274}, {"m": "2023-11", "n": 18734, "fcr": 0.7671, "csat": 2.7557, "csat_top2": 0.6865, "redir": 0.1006, "cycle_s": 418.2329, "missed": 0.8957, "unnecessary": 0.7586, "repeat30": 0.0268}, {"m": "2023-12", "n": 19141, "fcr": 0.7654, "csat": 2.7748, "csat_top2": 0.6886, "redir": 0.0999, "cycle_s": 420.3515, "missed": 0.8976, "unnecessary": 0.7594, "repeat30": 0.0288}, {"m": "2024-01", "n": 18947, "fcr": 0.7638, "csat": 2.7672, "csat_top2": 0.6833, "redir": 0.0959, "cycle_s": 416.4473, "missed": 0.9001, "unnecessary": 0.754, "repeat30": 0.0249}, {"m": "2024-02", "n": 18474, "fcr": 0.7637, "csat": 2.7816, "csat_top2": 0.6883, "redir": 0.0992, "cycle_s": 418.2868, "missed": 0.904, "unnecessary": 0.7714, "repeat30": 0.0299}, {"m": "2024-03", "n": 18952, "fcr": 0.765, "csat": 2.7687, "csat_top2": 0.6927, "redir": 0.1007, "cycle_s": 419.4795, "missed": 0.8989, "unnecessary": 0.7643, "repeat30": 0.0264}, {"m": "2024-04", "n": 19730, "fcr": 0.7618, "csat": 2.7514, "csat_top2": 0.6758, "redir": 0.1001, "cycle_s": 420.5411, "missed": 0.8983, "unnecessary": 0.7579, "repeat30": 0.0262}, {"m": "2024-05", "n": 19155, "fcr": 0.7621, "csat": 2.7674, "csat_top2": 0.6871, "redir": 0.0986, "cycle_s": 418.8818, "missed": 0.901, "unnecessary": 0.7611, "repeat30": 0.0279}, {"m": "2024-06", "n": 18255, "fcr": 0.7678, "csat": 2.7734, "csat_top2": 0.6881, "redir": 0.0945, "cycle_s": 418.6751, "missed": 0.9047, "unnecessary": 0.7658, "repeat30": 0.0274}, {"m": "2024-07", "n": 19576, "fcr": 0.7671, "csat": 2.7637, "csat_top2": 0.6865, "redir": 0.0985, "cycle_s": 420.7331, "missed": 0.9044, "unnecessary": 0.7739, "repeat30": 0.0283}, {"m": "2024-08", "n": 19916, "fcr": 0.7678, "csat": 2.7561, "csat_top2": 0.6814, "redir": 0.1, "cycle_s": 417.0534, "missed": 0.902, "unnecessary": 0.7726, "repeat30": 0.0302}, {"m": "2024-09", "n": 18840, "fcr": 0.766, "csat": 2.7695, "csat_top2": 0.6834, "redir": 0.1003, "cycle_s": 417.3589, "missed": 0.905, "unnecessary": 0.7783, "repeat30": 0.0284}, {"m": "2024-10", "n": 19598, "fcr": 0.7698, "csat": 2.7474, "csat_top2": 0.6778, "redir": 0.1037, "cycle_s": 419.9431, "missed": 0.8969, "unnecessary": 0.7712, "repeat30": 0.0264}, {"m": "2024-11", "n": 17691, "fcr": 0.7671, "csat": 2.7769, "csat_top2": 0.6878, "redir": 0.1011, "cycle_s": 416.313, "missed": 0.8971, "unnecessary": 0.7629, "repeat30": 0.0266}, {"m": "2024-12", "n": 18992, "fcr": 0.7644, "csat": 2.7797, "csat_top2": 0.6905, "redir": 0.0964, "cycle_s": 419.7941, "missed": 0.9012, "unnecessary": 0.7585, "repeat30": 0.0269}, {"m": "2025-01", "n": 19513, "fcr": 0.7648, "csat": 2.7575, "csat_top2": 0.6915, "redir": 0.0982, "cycle_s": 418.3367, "missed": 0.9081, "unnecessary": 0.7797, "repeat30": 0.0274}, {"m": "2025-02", "n": 17171, "fcr": 0.7648, "csat": 2.7515, "csat_top2": 0.6733, "redir": 0.1038, "cycle_s": 418.2813, "missed": 0.8908, "unnecessary": 0.7527, "repeat30": 0.0277}, {"m": "2025-03", "n": 19523, "fcr": 0.7691, "csat": 2.7603, "csat_top2": 0.6862, "redir": 0.0996, "cycle_s": 418.7737, "missed": 0.9095, "unnecessary": 0.7902, "repeat30": 0.0281}, {"m": "2025-04", "n": 19160, "fcr": 0.7681, "csat": 2.7673, "csat_top2": 0.6852, "redir": 0.0979, "cycle_s": 421.8764, "missed": 0.9041, "unnecessary": 0.7728, "repeat30": 0.0285}, {"m": "2025-05", "n": 19745, "fcr": 0.7702, "csat": 2.7507, "csat_top2": 0.6782, "redir": 0.0973, "cycle_s": 418.608, "missed": 0.8975, "unnecessary": 0.7581, "repeat30": 0.0274}, {"m": "2025-06", "n": 18159, "fcr": 0.7684, "csat": 2.7722, "csat_top2": 0.6878, "redir": 0.0969, "cycle_s": 421.3233, "missed": 0.902, "unnecessary": 0.7658, "repeat30": 0.027}, {"m": "2025-07", "n": 19716, "fcr": 0.7629, "csat": 2.7532, "csat_top2": 0.681, "redir": 0.1009, "cycle_s": 420.8363, "missed": 0.9022, "unnecessary": 0.7704, "repeat30": 0.0254}, {"m": "2025-08", "n": 19077, "fcr": 0.7651, "csat": 2.7543, "csat_top2": 0.6803, "redir": 0.1016, "cycle_s": 419.5267, "missed": 0.8994, "unnecessary": 0.7673, "repeat30": 0.0264}, {"m": "2025-09", "n": 19317, "fcr": 0.7633, "csat": 2.7867, "csat_top2": 0.7058, "redir": 0.1016, "cycle_s": 419.1994, "missed": 0.8994, "unnecessary": 0.7655, "repeat30": 0.0266}, {"m": "2025-10", "n": 19032, "fcr": 0.7667, "csat": 2.772, "csat_top2": 0.7006, "redir": 0.1008, "cycle_s": 419.7584, "missed": 0.8948, "unnecessary": 0.7565, "repeat30": 0.0264}, {"m": "2025-11", "n": 19007, "fcr": 0.767, "csat": 2.75, "csat_top2": 0.6801, "redir": 0.0985, "cycle_s": 420.4084, "missed": 0.9024, "unnecessary": 0.7694, "repeat30": 0.0247}, {"m": "2025-12", "n": 19606, "fcr": 0.7618, "csat": 2.7754, "csat_top2": 0.6908, "redir": 0.0984, "cycle_s": 419.5018, "missed": 0.9105, "unnecessary": 0.7834, "repeat30": 0.0275}, {"m": "2026-01", "n": 18831, "fcr": 0.7676, "csat": 2.7631, "csat_top2": 0.682, "redir": 0.0991, "cycle_s": 419.2412, "missed": 0.8992, "unnecessary": 0.7638, "repeat30": 0.0257}, {"m": "2026-02", "n": 17776, "fcr": 0.7678, "csat": 2.7597, "csat_top2": 0.6807, "redir": 0.0985, "cycle_s": 418.2355, "missed": 0.9019, "unnecessary": 0.7687, "repeat30": 0.0281}, {"m": "2026-03", "n": 20406, "fcr": 0.77, "csat": 2.7753, "csat_top2": 0.6902, "redir": 0.101, "cycle_s": 417.1876, "missed": 0.8909, "unnecessary": 0.7517, "repeat30": 0.0275}, {"m": "2026-04", "n": 18820, "fcr": 0.7716, "csat": 2.7852, "csat_top2": 0.7005, "redir": 0.1016, "cycle_s": 419.6704, "missed": 0.8988, "unnecessary": 0.7725, "repeat30": 0.0254}, {"m": "2026-05", "n": 18774, "fcr": 0.7704, "csat": 2.7835, "csat_top2": 0.6954, "redir": 0.0993, "cycle_s": 417.4929, "missed": 0.8979, "unnecessary": 0.7639, "repeat30": 0.0279}], "reason": [{"r": "transactional", "n": 240056, "fcr": 0.9151, "csat": 2.9131, "cycle_s": 318.2048, "redir": 0.0993, "repeat30": 0.0414}, {"r": "product", "n": 150863, "fcr": 0.8963, "csat": 2.8955, "cycle_s": 364.1059, "redir": 0.0996, "repeat30": 0.0255}, {"r": "complaint", "n": 117021, "fcr": 0.436, "csat": 2.4341, "cycle_s": 532.592, "redir": 0.1003, "repeat30": 0.0191}, {"r": "technical", "n": 102899, "fcr": 0.6993, "csat": 2.6952, "cycle_s": 458.2121, "redir": 0.1007, "repeat30": 0.0173}, {"r": "commercial", "n": 54879, "fcr": 0.6521, "csat": 2.6593, "cycle_s": 637.817, "redir": 0.0984, "repeat30": 0.0092}, {"r": "retention", "n": 20578, "fcr": 0.6016, "csat": 2.6064, "cycle_s": 578.0002, "redir": 0.0985, "repeat30": 0.0041}], "esc_matrix": [{"was_resolved": false, "was_escalated": false, "n": 144334, "csat": 2.0016}, {"was_resolved": false, "was_escalated": true, "n": 15932, "csat": 2.0182}, {"was_resolved": true, "was_escalated": false, "n": 473576, "csat": 2.9991}, {"was_resolved": true, "was_escalated": true, "n": 52454, "csat": 2.9971}], "disputes": [{"s": "Cargo no reconocido", "n": 12297, "sla": 0.2039, "med_days": 15.0, "unassigned": 0.338}, {"s": "Cobro indebido", "n": 12194, "sla": 0.1994, "med_days": 16.0, "unassigned": 0.3403}, {"s": "Problema con app", "n": 12128, "sla": 0.2003, "med_days": 16.0, "unassigned": 0.3438}, {"s": "Atención en sucursal", "n": 11892, "sla": 0.2036, "med_days": 16.0, "unassigned": 0.348}, {"s": "Calidad de servicio", "n": 11886, "sla": 0.2029, "med_days": 16.0, "unassigned": 0.3523}, {"s": "(none)", "n": 6698, "sla": 0.1933, "med_days": 16.0, "unassigned": 0.3453}], "dispute_status": [{"s": "In Process", "n": 26823}, {"s": "Open", "n": 20125}, {"s": "Resolved", "n": 13512}, {"s": "Escalated", "n": 3321}, {"s": "Closed", "n": 2609}, {"s": "Rejected", "n": 705}], "totals": {"n": 686296, "customers": 148443, "fcr": 0.7665, "csat": 2.7652, "csat_top2": 0.6866, "redir": 0.0996, "cycle_s": 419.158, "missed": 0.9006, "unnecessary": 0.767, "repeat30": 0.0268, "n_csat": 127856}, "scorecard": [{"kpi": "fcr_rate", "stage": "5. Result sufficient", "value": 0.7665, "coverage": 1.0, "sensitivity": 0.625, "stability": 0.996, "csat_link_raw": 0.996, "csat_link_adjusted": 1.0, "score": 0.835}, {"kpi": "unnecessary_escalation_rate", "stage": "6. Human escalation", "value": 0.767, "coverage": 0.1, "sensitivity": 0.618, "stability": 0.988, "csat_link_raw": 0.979, "csat_link_adjusted": 0.99, "score": 0.649}, {"kpi": "negative_sentiment_rate", "stage": "3. Understanding / clarification", "value": 0.1924, "coverage": 1.0, "sensitivity": 1.819, "stability": 0.984, "csat_link_raw": 0.153, "csat_link_adjusted": 0.016, "score": 0.604}, {"kpi": "repeat_same_reason_30d", "stage": "3. Understanding / clarification", "value": 0.0268, "coverage": 1.0, "sensitivity": 1.393, "stability": 0.95, "csat_link_raw": 0.048, "csat_link_adjusted": 0.028, "score": 0.545}, {"kpi": "followup_rate", "stage": "3. Understanding / clarification", "value": 0.3483, "coverage": 1.0, "sensitivity": 1.172, "stability": 0.989, "csat_link_raw": 0.667, "csat_link_adjusted": 0.013, "score": 0.515}, {"kpi": "aht_seconds", "stage": "5. Result sufficient", "value": 321.4545, "coverage": 0.86, "sensitivity": 0.993, "stability": 0.996, "csat_link_raw": 0.17, "csat_link_adjusted": 0.007, "score": 0.461}, {"kpi": "cycle_time_seconds", "stage": "5. Result sufficient", "value": 419.158, "coverage": 0.86, "sensitivity": 0.763, "stability": 0.997, "csat_link_raw": 0.153, "csat_link_adjusted": 0.007, "score": 0.429}, {"kpi": "repeat_contact_7d", "stage": "3. Understanding / clarification", "value": 0.0287, "coverage": 1.0, "sensitivity": 0.035, "stability": 0.959, "csat_link_raw": 0.012, "csat_link_adjusted": 0.028, "score": 0.36}, {"kpi": "redirection_rate", "stage": "6. Human escalation", "value": 0.0996, "coverage": 1.0, "sensitivity": 0.024, "stability": 0.978, "csat_link_raw": 0.005, "csat_link_adjusted": 0.014, "score": 0.356}, {"kpi": "survey_response_rate", "stage": "7. Satisfaction survey", "value": 0.31, "coverage": 1.0, "sensitivity": 0.012, "stability": 0.999, "csat_link_raw": 0.0, "csat_link_adjusted": 0.0, "score": 0.352}, {"kpi": "contacts_per_customer_90d", "stage": "1. Contact", "value": 0.3601, "coverage": 1.0, "sensitivity": 0.014, "stability": 0.874, "csat_link_raw": 0.003, "csat_link_adjusted": 0.009, "score": 0.337}, {"kpi": "wait_seconds", "stage": "1. Contact", "value": 119.9371, "coverage": 0.7, "sensitivity": 0.01, "stability": 0.996, "csat_link_raw": 0.001, "csat_link_adjusted": 0.007, "score": 0.294}, {"kpi": "csat_top2", "stage": "7. Satisfaction survey", "value": 0.6866, "coverage": 0.186, "sensitivity": 0.491, "stability": 0.99, "csat_link_raw": 0.0, "csat_link_adjusted": 0.0, "score": 0.253}, {"kpi": "missed_escalation_rate", "stage": "6. Human escalation", "value": 0.9006, "coverage": 0.234, "sensitivity": 0.006, "stability": 0.995, "csat_link_raw": 0.017, "csat_link_adjusted": 0.021, "score": 0.205}], "models": {"csat_top2": {"n_train": 86869, "n_valid": 21365, "n_test": 19622, "best_iteration": 92, "baseline": {"by": "was_resolved", "roc_auc": 0.7887, "pr_auc": 0.8413, "positive_rate": 0.6885}, "lightgbm": {"roc_auc": 0.7862, "pr_auc": 0.8431, "positive_rate": 0.6885}}, "fcr": {"n_train": 464791, "n_valid": 115755, "n_test": 105750, "best_iteration": 110, "baseline": {"by": "contact_reason", "roc_auc": 0.7638, "pr_auc": 0.8875, "positive_rate": 0.7687}, "lightgbm": {"roc_auc": 0.7627, "pr_auc": 0.8942, "positive_rate": 0.7687}}, "escalated": {"n_train": 464791, "n_valid": 115755, "n_test": 105750, "best_iteration": 4, "baseline": {"by": "contact_reason", "roc_auc": 0.5006, "pr_auc": 0.0996, "positive_rate": 0.0997}, "lightgbm": {"roc_auc": 0.5075, "pr_auc": 0.1012, "positive_rate": 0.0997}}, "cycle_time": {"n_train": 399734, "n_valid": 99447, "n_test": 90881, "best_iteration": 111, "baseline": {"by": "contact_reason", "mae": 84.46, "target_mean": 320.67}, "lightgbm": {"mae": 83.96, "target_mean": 320.67}}}};
+const $ = (s) => document.querySelector(s);
+const pct = (v, d = 1) => (v * 100).toFixed(d) + "%";
+const fmtN = (v) => Math.round(v).toLocaleString("en-US");
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const T = D.totals;
+$("#m-n").textContent = fmtN(T.n) + " contacts";
+$("#m-c").textContent = fmtN(T.customers) + " customers";
+
+const KPIS = [
+  { key: "csat_top2", name: "CSAT top-2", v: T.csat_top2, f: pct, tier: ["North star", "p-star"], star: true,
+    note: "Score ≥ 3 on 1–4. Mean " + T.csat.toFixed(2) + ", n = " + fmtN(T.n_csat) + " surveys" },
+  { key: "fcr", name: "First-contact resolution", v: T.fcr, f: pct, tier: ["Main driver", "p-good"],
+    note: "Resolved 3.00 vs unresolved 2.00 CSAT" },
+  { key: "missed", name: "Missed escalations", v: T.missed, f: pct, tier: ["Critical", "p-crit"],
+    note: "Unresolved contacts that never reached a human" },
+  { key: "unnecessary", name: "Unnecessary escalations", v: T.unnecessary, f: pct, tier: ["Warning", "p-warn"],
+    note: "Escalated contacts that were already resolved" },
+  { key: "repeat30", name: "Repeat contact, same reason", v: T.repeat30, f: (v) => pct(v, 2), tier: ["Frequency", "p-muted"],
+    note: "Same reason again within 30 days" },
+  { key: "cycle_s", name: "Cycle time", v: T.cycle_s, f: (v) => Math.round(v) + " s", tier: ["Efficiency", "p-muted"],
+    note: "Wait + handling. No CSAT effect; drives cost" },
+];
+
+function sparkline(series) {
+  const w = 200, h = 38, pad = 3;
+  const lo = Math.min(...series), hi = Math.max(...series);
+  const span = (hi - lo) || 1;
+  const x = (i) => pad + (i * (w - pad * 2)) / (series.length - 1);
+  const y = (v) => h - pad - ((v - lo) / span) * (h - pad * 2 - 6);
+  const pts = series.map((v, i) => [x(i), y(v)]);
+  const line = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join("");
+  const area = line + `L${x(series.length - 1)} ${h}L${x(0)} ${h}Z`;
+  const last = pts[pts.length - 1];
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true">
+    <path d="${area}" fill="var(--accent-soft)"/>
+    <path d="${line}" fill="none" stroke="var(--accent)" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+    <circle cx="${last[0]}" cy="${last[1]}" r="2.6" fill="var(--accent)"/></svg>`;
+}
+$("#tiles").innerHTML = KPIS.map((k) => {
+  const s = D.monthly.map((m) => m[k.key]);
+  return `<div class="tile${k.star ? " star" : ""}">
+    <div class="row"><span class="name">${k.name}</span><span class="pill ${k.tier[1]}">${k.tier[0]}</span></div>
+    <div class="value">${k.f(k.v)}</div>
+    <div class="note">${k.note}</div>${sparkline(s)}</div>`;
+}).join("");
+
+// Resolution x escalation matrix (sequential fill by volume).
+(function () {
+  const m = {}; D.esc_matrix.forEach((r) => (m[`${r.was_resolved}|${r.was_escalated}`] = r));
+  const max = Math.max(...D.esc_matrix.map((r) => r.n));
+  const steps = ["--seq-1", "--seq-2", "--seq-3", "--seq-4"];
+  const cell = (res, esc, tag, tagCls) => {
+    const r = m[`${res}|${esc}`]; const t = r.n / max;
+    const step = steps[Math.min(3, Math.floor(t * 4))];
+    const dark = step === "--seq-3" || step === "--seq-4";
+    const ink = dark ? "#ffffff" : "var(--ink)";
+    return `<div class="cell" style="background:var(${step});color:${ink}">
+      <span class="tag pill ${tagCls}" style="justify-self:start">${tag}</span>
+      <div><div class="n">${fmtN(r.n)}</div><div class="c">CSAT ${r.csat.toFixed(2)} · ${pct(r.n / T.n)} of contacts</div></div></div>`;
+  };
+  $("#matrix").innerHTML = `
+    <div></div><div class="lab col">Not escalated</div><div class="lab col">Escalated</div>
+    <div class="lab">Resolved</div>${cell(true, false, "Correct", "p-good")}${cell(true, true, "Unnecessary", "p-warn")}
+    <div class="lab">Not resolved</div>${cell(false, false, "Missed handoff", "p-crit")}${cell(false, true, "Correct", "p-good")}`;
+  const missed = m["false|false"].n;
+  $("#matrix-callout").textContent = `${fmtN(missed)} customers left without a solution and without a human. Each one costs a full CSAT point. The bot's handoff policy targets this cell first.`;
+})();
+
+// Scorecard table.
+(function () {
+  const selected = { fcr_rate: "Selected", unnecessary_escalation_rate: "Selected", repeat_same_reason_30d: "Selected",
+    cycle_time_seconds: "Selected", csat_top2: "North star", negative_sentiment_rate: "Diagnostic" };
+  const label = (k) => k.replace(/_/g, " ").replace("rate", "").replace("seconds", "(s)").trim();
+  const max = Math.max(...D.scorecard.map((r) => r.score));
+  const rows = D.scorecard.map((r) => {
+    const sel = selected[r.kpi] || (r.kpi === "missed_escalation_rate" ? "Selected" : "Rejected");
+    const cls = sel === "Rejected" ? "p-muted" : sel === "Diagnostic" ? "p-warn" : sel === "North star" ? "p-star" : "p-good";
+    const val = r.value > 5 ? Math.round(r.value) : pct(r.value);
+    return `<tr><td>${label(r.kpi)}</td><td class="num">${val}</td>
+      <td class="num">${r.csat_link_raw.toFixed(3)}</td><td class="num">${r.csat_link_adjusted.toFixed(3)}</td>
+      <td><div class="bar-track"><div class="bar" style="width:${(r.score / max) * 100}%"></div></div></td>
+      <td><span class="pill ${cls}">${sel}</span></td></tr>`;
+  }).join("");
+  $("#score").innerHTML = `<thead><tr><th>KPI</th><th class="num">Value</th><th class="num">Raw link</th><th class="num">Adjusted</th><th>Score</th><th>Verdict</th></tr></thead><tbody>${rows}</tbody>`;
+})();
+
+// Metric switch drives the reason table and the trend chart.
+const METRICS = [
+  { key: "fcr", label: "FCR", f: pct, better: "up" },
+  { key: "csat", label: "CSAT", f: (v) => v.toFixed(2), better: "up" },
+  { key: "cycle_s", label: "Cycle time", f: (v) => Math.round(v) + " s", better: "down" },
+  { key: "redir", label: "Redirection", f: pct, better: "down" },
+  { key: "repeat30", label: "Repeat 30d", f: (v) => pct(v, 2), better: "down" },
+];
+let current = METRICS[0];
+try { const saved = localStorage.getItem("iris-metric"); const m = METRICS.find((x) => x.key === saved); if (m) current = m; } catch (e) {}
+$("#metric-seg").innerHTML = METRICS.map((m) => `<button type="button" id="seg-${m.key}" data-k="${m.key}" aria-pressed="${m === current}">${m.label}</button>`).join("");
+$("#metric-seg").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  current = METRICS.find((m) => m.key === b.dataset.k);
+  document.querySelectorAll("#metric-seg button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+  try { localStorage.setItem("iris-metric", current.key); } catch (e2) {}
+  renderReasons(); renderTrend();
+});
+
+function renderReasons() {
+  const rows = [...D.reason].sort((a, b) => (current.better === "up" ? a[current.key] - b[current.key] : b[current.key] - a[current.key]));
+  const max = Math.max(...rows.map((r) => r[current.key]));
+  const worst = rows[0].r;
+  $("#reason-title").textContent = `${current.label} by contact reason · worst first`;
+  $("#reasons").innerHTML = `<thead><tr><th>Reason</th><th class="num">Contacts</th><th class="num">${current.label}</th><th></th></tr></thead><tbody>` +
+    rows.map((r) => `<tr><td>${r.r}${r.r === worst ? ' <span class="pill p-crit">Worst</span>' : ""}</td>
+      <td class="num">${fmtN(r.n)}</td><td class="num">${current.f(r[current.key])}</td>
+      <td style="width:42%"><div class="bar-track"><div class="bar" style="width:${(r[current.key] / max) * 100}%;${r.r === worst ? "background:var(--crit)" : ""}"></div></div></td></tr>`).join("") + "</tbody>";
+}
+
+function niceTicks(lo, hi, n = 4) {
+  const span = hi - lo || Math.abs(hi) || 1;
+  const raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map((s) => s * mag).find((s) => s >= raw);
+  const start = Math.floor(lo / step) * step, end = Math.ceil(hi / step) * step;
+  const out = []; for (let v = start; v <= end + step / 2; v += step) out.push(+v.toFixed(10));
+  return out;
+}
+
+function renderTrend() {
+  const svg = $("#trend"); const box = $("#trend-box");
+  const W = Math.max(300, box.clientWidth), H = 240, m = { l: 52, r: 14, t: 12, b: 26 };
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const data = D.monthly.map((d) => ({ m: d.m, v: d[current.key] }));
+  const vals = data.map((d) => d.v);
+  // Zero-based for rates so flat series read as flat; tight domain for CSAT and seconds stays honest via ticks.
+  const isRate = current.key !== "csat" && current.key !== "cycle_s";
+  let lo = isRate ? 0 : Math.min(...vals), hi = Math.max(...vals);
+  if (current.key === "csat") { lo = 1; hi = 4; }
+  if (current.key === "cycle_s") { lo = 0; }
+  const ticks = niceTicks(lo, hi * (isRate ? 1.15 : 1.05));
+  const y0 = ticks[0], y1 = ticks[ticks.length - 1];
+  const x = (i) => m.l + (i * (W - m.l - m.r)) / (data.length - 1);
+  const y = (v) => H - m.b - ((v - y0) / (y1 - y0)) * (H - m.t - m.b);
+  let g = "";
+  ticks.forEach((t) => {
+    g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)" stroke-width="1"/>`;
+    g += `<text x="${m.l - 8}" y="${y(t) + 4}" text-anchor="end">${current.f(t).replace(".0%", "%").replace(".00%", "%")}</text>`;
+  });
+  data.forEach((d, i) => { if (d.m.endsWith("-01")) g += `<text x="${x(i)}" y="${H - 8}" text-anchor="middle">${d.m.slice(0, 4)}</text><line x1="${x(i)}" x2="${x(i)}" y1="${H - m.b}" y2="${H - m.b + 4}" stroke="var(--axis)"/>`; });
+  g += `<line x1="${m.l}" x2="${W - m.r}" y1="${H - m.b}" y2="${H - m.b}" stroke="var(--axis)"/>`;
+  const line = data.map((d, i) => (i ? "L" : "M") + x(i).toFixed(1) + " " + y(d.v).toFixed(1)).join("");
+  g += `<path d="${line}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>`;
+  const last = data[data.length - 1];
+  g += `<circle cx="${x(data.length - 1)}" cy="${y(last.v)}" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2"/>`;
+  g += `<line id="xh" x1="0" x2="0" y1="${m.t}" y2="${H - m.b}" stroke="var(--ink-2)" stroke-dasharray="3 3" visibility="hidden"/>`;
+  g += `<circle id="xd" r="4" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" visibility="hidden"/>`;
+  g += `<rect x="${m.l}" y="${m.t}" width="${W - m.l - m.r}" height="${H - m.t - m.b}" fill="transparent" id="hit"/>`;
+  svg.innerHTML = g;
+  $("#trend-title").textContent = `${current.label} · monthly trend`;
+  const tip = $("#tip"), xh = svg.querySelector("#xh"), xd = svg.querySelector("#xd");
+  const move = (ev) => {
+    const r = svg.getBoundingClientRect(); const px = ((ev.clientX - r.left) / r.width) * W;
+    const i = Math.max(0, Math.min(data.length - 1, Math.round(((px - m.l) / (W - m.l - m.r)) * (data.length - 1))));
+    const d = data[i];
+    xh.setAttribute("x1", x(i)); xh.setAttribute("x2", x(i)); xh.setAttribute("visibility", "visible");
+    xd.setAttribute("cx", x(i)); xd.setAttribute("cy", y(d.v)); xd.setAttribute("visibility", "visible");
+    tip.hidden = false; tip.innerHTML = `<b>${d.m}</b> · ${current.label} ${current.f(d.v)}`;
+    tip.style.left = (x(i) / W) * r.width + "px"; tip.style.top = (y(d.v) / H) * r.height + "px";
+  };
+  const hit = svg.querySelector("#hit");
+  hit.addEventListener("pointermove", move);
+  hit.addEventListener("pointerleave", () => { tip.hidden = true; xh.setAttribute("visibility", "hidden"); xd.setAttribute("visibility", "hidden"); });
+}
+renderReasons(); renderTrend();
+new ResizeObserver(() => renderTrend()).observe($("#trend-box"));
+
+// Disputes.
+(function () {
+  const total = D.dispute_status.reduce((a, b) => a + b.n, 0);
+  const open = D.dispute_status.filter((s) => s.s === "Open" || s.s === "In Process").reduce((a, b) => a + b.n, 0);
+  const sub = D.disputes.filter((d) => d.s !== "(none)");
+  const sla = D.disputes.reduce((a, d) => a + d.sla * d.n, 0) / total;
+  const unassigned = D.disputes.reduce((a, d) => a + d.unassigned * d.n, 0) / total;
+  const tiles = [
+    ["Open or in process", pct(open / total), "Backlog the bot can triage", "p-crit", "Backlog"],
+    ["SLA breached", pct(sla), "Flat across every subcategory", "p-warn", "Warning"],
+    ["Unassigned", pct(unassigned), "No agent owns the case", "p-warn", "Warning"],
+    ["Median resolution", "16 days", "Median first response 38 h", "p-muted", "Cycle"],
+  ];
+  $("#disp-tiles").innerHTML = tiles.map((t) => `<div class="tile"><div class="row"><span class="name">${t[0]}</span><span class="pill ${t[3]}">${t[4]}</span></div><div class="value">${t[1]}</div><div class="note">${t[2]}</div></div>`).join("");
+  const colors = { "In Process": "var(--seq-4)", Open: "var(--seq-3)", Resolved: "var(--good)", Escalated: "var(--serious)", Closed: "var(--seq-2)", Rejected: "var(--muted)" };
+  $("#status-bar").innerHTML = D.dispute_status.map((s) => `<div title="${s.s}: ${fmtN(s.n)}" style="width:${(s.n / total) * 100}%;background:${colors[s.s]}"></div>`).join("");
+  $("#status-legend").innerHTML = D.dispute_status.map((s) => `<span><i style="background:${colors[s.s]}"></i>${s.s} ${pct(s.n / total)}</span>`).join("");
+  $("#disp-table").innerHTML = `<thead><tr><th>Subcategory</th><th class="num">Cases</th><th class="num">SLA breach</th><th class="num">Median days</th></tr></thead><tbody>` +
+    sub.map((d) => `<tr><td>${d.s}${/Cargo|Cobro/.test(d.s) ? ' <span class="pill p-star">Bot scope</span>' : ""}</td><td class="num">${fmtN(d.n)}</td><td class="num">${pct(d.sla)}</td><td class="num">${d.med_days}</td></tr>`).join("") + "</tbody>";
+})();
+
+// IRIS flow coverage.
+const FLOW = [
+  ["Contact via WhatsApp", "Volume share", "3.3% of contacts", "p-warn", "Partial", "Handling time missing for 100% of WhatsApp contacts"],
+  ["Authenticate customer", "Auth success, time to auth", "No data", "p-crit", "Instrument", "Logged by the bot's identity service"],
+  ["Understand request", "Repeat contact, same reason", pct(T.repeat30, 2), "p-good", "Measured", "Clarifying turns per case must be logged"],
+  ["Route to subprocess", "Intent accuracy (ES/PT)", "No labels", "p-crit", "Instrument", "Team-labeled eval set; no Portuguese in source"],
+  ["Retrieve & verify", "Verified-action rate", "No data", "p-crit", "Instrument", "Tool layer re-reads state after each action"],
+  ["Deliver result", "First-contact resolution", pct(T.fcr), "p-good", "Measured", "Main CSAT driver"],
+  ["Offer a human", "Missed / unnecessary escalation", pct(T.missed, 0) + " / " + pct(T.unnecessary, 0), "p-good", "Measured", "Deterministic handoff policy"],
+  ["Satisfaction survey", "CSAT top-2", pct(T.csat_top2), "p-good", "Measured", "31% survey response rate"],
+];
+$("#flow").innerHTML = FLOW.map((f) => `<div class="stage"><span class="pill ${f[3]}" style="justify-self:start">${f[4]}</span>
+  <h3>${f[0]}</h3><div class="k">${f[1]}: <b>${f[2]}</b></div><div class="k" style="color:var(--muted)">${f[5]}</div></div>`).join("");
+
+// Models.
+(function () {
+  const names = { csat_top2: "CSAT top-2", fcr: "FCR", escalated: "Redirection", cycle_time: "Cycle time" };
+  const rows = Object.entries(D.models).map(([k, r]) => {
+    const clf = "roc_auc" in r.lightgbm;
+    const b = clf ? r.baseline.roc_auc.toFixed(3) : r.baseline.mae.toFixed(1) + " s";
+    const l = clf ? r.lightgbm.roc_auc.toFixed(3) : r.lightgbm.mae.toFixed(1) + " s";
+    const metric = clf ? "ROC AUC" : "MAE";
+    const verdict = clf && r.lightgbm.roc_auc < 0.55 ? ["Not learnable", "p-crit"] : ["Ties baseline", "p-muted"];
+    return `<tr><td>${names[k]}</td><td>${metric}</td><td>rate by ${r.baseline.by}</td><td class="num">${b}</td><td class="num">${l}</td><td class="num">${fmtN(r.n_test)}</td><td><span class="pill ${verdict[1]}">${verdict[0]}</span></td></tr>`;
+  }).join("");
+  $("#models").innerHTML = `<thead><tr><th>KPI</th><th>Metric</th><th>Baseline</th><th class="num">Baseline</th><th class="num">LightGBM</th><th class="num">Test n</th><th>Verdict</th></tr></thead><tbody>${rows}</tbody>`;
+})();
+</script>

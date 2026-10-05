@@ -1,0 +1,56 @@
+{
+  "data": {
+    "train": 288,
+    "test": 90,
+    "train_by_lang": {
+      "es": 144,
+      "pt": 144
+    },
+    "test_by_lang": {
+      "es": 45,
+      "pt": 45
+    },
+    "test_families": 18,
+    "split": "held-out template families (one per intent x language)"
+  },
+  "grouped_cv_macro_f1_train": {
+    "mean": 0.7649,
+    "std": 0.0716
+  },
+  "test": {
+    "keyword_rules": {
+      "macro_f1": 0.3046,
+      "accuracy": 0.3222,
+      "n": 90,
+      "es": {
+        "macro_f1": 0.2937,
+        "accuracy": 0.3111,
+        "n": 45
+      },
+      "pt": {
+        "macro_f1": 0.3098,
+        "accuracy": 0.3333,
+        "n": 45
+      }
+    },
+    "tfidf_char_logreg": {
+      "macro_f1": 0.6467,
+      "accuracy": 0.6556,
+      "n": 90,
+      "es": {
+        "macro_f1": 0.6173,
+        "accuracy": 0.6222,
+        "n": 45
+      },
+      "pt": {
+        "macro_f1": 0.6745,
+        "accuracy": 0.6889,
+        "n": 45
+      },
+      "share_above_0.6_confidence": 0.4556,
+      "accuracy_when_above_0.6": 0.878
+    },
+    "llm_zero_shot": "not run (use --llm with ANTHROPIC_API_KEY)"
+  },
+  "language_detection_accuracy": 0.9222
+}

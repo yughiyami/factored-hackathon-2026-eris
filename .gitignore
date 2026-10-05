@@ -1,0 +1,38 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Data lake (5 GB, rebuilt by the pipeline) and generated reports
+data/
+reports/*.parquet
+
+# Runtime state (SQLite audit log, disputes, handoffs)
+runtime/
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb.wal
+
+# Committed exceptions: small demo DB and trained intent model
+!demo/iris_demo.duckdb
+!models/intent.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Eval outputs (regenerated)
+eval/results/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+.codegraph/

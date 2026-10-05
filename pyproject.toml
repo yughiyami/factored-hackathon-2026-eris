@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iris-bot"
+version = "0.1.0"
+description = "IRIS: AI-first transaction-dispute intake bot (WhatsApp) for the Factored AI & Data Hackathon 2026"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "python-multipart>=0.0.9",
+  "PyJWT>=2.8",
+  "structlog>=24.1",
+  "PyYAML>=6.0",
+  "duckdb>=1.1",
+  "scikit-learn>=1.5",
+  "joblib>=1.4",
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic>=0.75"]
+pipeline = ["pandas>=2.2", "pyarrow>=16", "boto3>=1.34", "lightgbm>=4.3", "shap>=0.45"]
+dagster = ["dagster>=1.8", "dagster-webserver>=1.8"]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["iris_bot*"]
+
+[tool.setuptools.package-data]
+iris_bot = ["api/static/*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["data", "demo", "models"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501", "B008", "B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/eris/quality/contracts.py" = ["E741"]

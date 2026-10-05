@@ -1,0 +1,90 @@
+{"text": "quiero desconocer un cargo de mi tarjeta de crédito", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/test_dispute_request"}
+{"text": "necesito poner un reclamo por un cobro que no es mío", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/test_dispute_request"}
+{"text": "quiero hacer el desconocimiento de una compra", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "ar", "family": "dispute_unrecognized_charge/es/test_dispute_request"}
+{"text": "ayúdame a disputar un cargo que no hice por favor", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/test_dispute_request"}
+{"text": "deseo abrir una disputa porque no reconozco una transacción", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/test_dispute_request"}
+{"text": "quero contestar uma compra do meu cartão de crédito", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/test_dispute_request"}
+{"text": "preciso abrir uma contestação de uma transação que não é minha", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/test_dispute_request"}
+{"text": "quero fazer uma reclamação de compra não reconhecida", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/test_dispute_request"}
+{"text": "me ajuda a contestar um lançamento que não fiz", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/test_dispute_request"}
+{"text": "gostaria de abrir uma disputa por uma compra desconhecida", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/test_dispute_request"}
+{"text": "quiero que me regresen un cobro que no procede", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/test_refund_request"}
+{"text": "solicito el reembolso de una tarifa mal aplicada", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/test_refund_request"}
+{"text": "pido que me reintegren una comisión cobrada por error", "intent": "dispute_wrong_fee", "lang": "es", "variant": "ar", "family": "dispute_wrong_fee/es/test_refund_request"}
+{"text": "necesito que reviertan un cargo duplicado", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/test_refund_request"}
+{"text": "exijo la devolución de la cuota que me cobraron sin razón", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/test_refund_request"}
+{"text": "quero o estorno de uma cobrança indevida", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/test_refund_request"}
+{"text": "solicito o reembolso de uma tarifa aplicada errado", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/test_refund_request"}
+{"text": "peço a devolução da taxa cobrada por engano", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/test_refund_request"}
+{"text": "preciso que estornem uma cobrança duplicada", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/test_refund_request"}
+{"text": "exijo a devolução da anuidade cobrada sem motivo", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/test_refund_request"}
+{"text": "¿cuándo me van a resolver la disputa que abrí?", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/test_resolution_eta"}
+{"text": "¿para cuándo tienen respuesta de mi reclamo?", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/test_resolution_eta"}
+{"text": "¿cuánto falta para que resuelvan mi caso?", "intent": "dispute_status", "lang": "es", "variant": "ar", "family": "dispute_status/es/test_resolution_eta"}
+{"text": "¿ya me devolvieron el dinero del cargo que reclamé?", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/test_resolution_eta"}
+{"text": "¿mi reclamo ya fue aprobado?", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/test_resolution_eta"}
+{"text": "quando vão resolver a contestação que abri?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/test_resolution_eta"}
+{"text": "qual o prazo para a resposta da minha reclamação?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/test_resolution_eta"}
+{"text": "quanto falta para resolverem meu caso?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/test_resolution_eta"}
+{"text": "já devolveram o dinheiro da compra que contestei?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/test_resolution_eta"}
+{"text": "minha contestação já foi aprovada?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/test_resolution_eta"}
+{"text": "cancelen mi tarjeta ahora mismo que la extravié", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/test_cancel_card"}
+{"text": "anulen la tarjeta que me la clonaron", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/test_cancel_card"}
+{"text": "den de baja el plástico que me lo robaron", "intent": "card_block_request", "lang": "es", "variant": "ar", "family": "card_block_request/es/test_cancel_card"}
+{"text": "inhabiliten mi tarjeta, creo que la copiaron", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/test_cancel_card"}
+{"text": "no quiero que nadie use mi tarjeta, deténganla", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/test_cancel_card"}
+{"text": "cancelem meu cartão agora que eu perdi", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/test_cancel_card"}
+{"text": "anulem o cartão que clonaram", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/test_cancel_card"}
+{"text": "deem baixa no cartão que foi roubado", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/test_cancel_card"}
+{"text": "inabilitem meu cartão, acho que copiaram", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/test_cancel_card"}
+{"text": "não quero que ninguém use meu cartão, travem ele", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/test_cancel_card"}
+{"text": "muéstrame mis cuentas y cuánto tiene cada una", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/test_products_overview"}
+{"text": "quiero ver el resumen de mis productos", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/test_products_overview"}
+{"text": "pasame los saldos de todos mis productos", "intent": "balance_inquiry", "lang": "es", "variant": "ar", "family": "balance_inquiry/es/test_products_overview"}
+{"text": "¿qué balance tienen mis cuentas?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/test_products_overview"}
+{"text": "¿cuánto dinero tengo en total?", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/test_products_overview"}
+{"text": "me mostra minhas contas e quanto tem em cada uma", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/test_products_overview"}
+{"text": "quero ver o resumo dos meus produtos", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/test_products_overview"}
+{"text": "me passa os saldos de todos os meus produtos", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/test_products_overview"}
+{"text": "qual o balanço das minhas contas?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/test_products_overview"}
+{"text": "quanto dinheiro eu tenho no total?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/test_products_overview"}
+{"text": "¿tengo algún crédito preaprobado?", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/test_preapproval"}
+{"text": "¿qué ofertas de crédito tengo disponibles?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/test_preapproval"}
+{"text": "¿califico para una tarjeta nueva?", "intent": "credit_eligibility", "lang": "es", "variant": "ar", "family": "credit_eligibility/es/test_preapproval"}
+{"text": "¿me alcanza el historial para una tarjeta oro?", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/test_preapproval"}
+{"text": "quiero saber si me prestan con mi puntaje", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/test_preapproval"}
+{"text": "tenho algum crédito pré-aprovado?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/test_preapproval"}
+{"text": "quais ofertas de crédito eu tenho?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/test_preapproval"}
+{"text": "eu me qualifico para um cartão novo?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/test_preapproval"}
+{"text": "meu histórico dá para um cartão gold?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/test_preapproval"}
+{"text": "quero saber se me emprestam com meu score", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/test_preapproval"}
+{"text": "que me llame alguien del banco por favor", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/test_call_me"}
+{"text": "prefiero que me contacte un funcionario", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/test_call_me"}
+{"text": "necesito que me atienda personal del banco", "intent": "talk_to_human", "lang": "es", "variant": "ar", "family": "talk_to_human/es/test_call_me"}
+{"text": "transfiéreme con atención al cliente", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/test_call_me"}
+{"text": "quiero que un especialista revise mi caso", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/test_call_me"}
+{"text": "quero que alguém do banco me ligue", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/test_call_me"}
+{"text": "prefiro que um funcionário entre em contato", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/test_call_me"}
+{"text": "preciso ser atendido pela equipe do banco", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/test_call_me"}
+{"text": "me transfere para o atendimento ao cliente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/test_call_me"}
+{"text": "quero que um especialista veja meu caso", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/test_call_me"}
+{"text": "hola bot", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/test_hello_bot"}
+{"text": "hola, ¿hay alguien ahí?", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/test_hello_bot"}
+{"text": "holaa", "intent": "greeting", "lang": "es", "variant": "ar", "family": "greeting/es/test_hello_bot"}
+{"text": "buenas, ¿me escuchan?", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/test_hello_bot"}
+{"text": "hola, buenas noches a todos", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/test_hello_bot"}
+{"text": "oi robô", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/test_hello_bot"}
+{"text": "olá, tem alguém aí?", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/test_hello_bot"}
+{"text": "oiii", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/test_hello_bot"}
+{"text": "oi, estão me ouvindo?", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/test_hello_bot"}
+{"text": "olá, boa noite a todos", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/test_hello_bot"}
+{"text": "¿cuánto mide el monte Everest?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/test_misc"}
+{"text": "¿qué opinas de la inteligencia artificial?", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/test_misc"}
+{"text": "recomendame una serie para el finde", "intent": "out_of_scope", "lang": "es", "variant": "ar", "family": "out_of_scope/es/test_misc"}
+{"text": "¿cómo se hace un pastel de chocolate?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/test_misc"}
+{"text": "¿cuál es el mejor equipo de fútbol?", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/test_misc"}
+{"text": "qual a altura do monte Everest?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/test_misc"}
+{"text": "o que você acha da inteligência artificial?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/test_misc"}
+{"text": "me indica uma série pro fim de semana", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/test_misc"}
+{"text": "como se faz um bolo de chocolate?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/test_misc"}
+{"text": "qual é o melhor time de futebol?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/test_misc"}

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRIS Chat</title>
+<style>
+  :root {
+    --bg: #efeae2; --panel: #ffffff; --header: #075e54; --header-ink: #ffffff;
+    --me: #d9fdd3; --bot: #ffffff; --ink: #111b21; --muted: #667781; --accent: #25d366; --border: #d1d7db;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b141a; --panel: #111b21; --header: #202c33; --header-ink: #e9edef;
+      --me: #005c4b; --bot: #202c33; --ink: #e9edef; --muted: #8696a0; --accent: #00a884; --border: #2a3942;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b141a; --panel: #111b21; --header: #202c33; --header-ink: #e9edef;
+    --me: #005c4b; --bot: #202c33; --ink: #e9edef; --muted: #8696a0; --accent: #00a884; --border: #2a3942;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .app { max-width: 720px; margin: 0 auto; height: 100dvh; display: flex; flex-direction: column; }
+  header { background: var(--header); color: var(--header-ink); padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+  header .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; font-weight: 700; color: #fff; }
+  header small { display: block; opacity: .8; font-size: 12px; }
+  header button { margin-left: auto; background: transparent; color: var(--header-ink); border: 1px solid currentColor; border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+  #log { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .msg { max-width: 85%; padding: 7px 10px; border-radius: 8px; white-space: pre-wrap; word-wrap: break-word; box-shadow: 0 1px .5px rgba(0,0,0,.13); }
+  .me { align-self: flex-end; background: var(--me); }
+  .bot { align-self: flex-start; background: var(--bot); }
+  .meta { align-self: center; font-size: 12px; color: var(--muted); background: var(--panel); padding: 3px 10px; border-radius: 6px; }
+  form { display: flex; gap: 8px; padding: 10px 16px; background: var(--panel); border-top: 1px solid var(--border); }
+  input { flex: 1; min-width: 0; padding: 10px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--ink); font: inherit; }
+  form button { background: var(--accent); color: #fff; border: 0; border-radius: 20px; padding: 0 16px; font-weight: 600; cursor: pointer; }
+  details { background: var(--panel); border-bottom: 1px solid var(--border); padding: 8px 16px; font-size: 13px; color: var(--muted); }
+  details code { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="dot">I</div>
+    <div><strong>IRIS</strong><small>Asistente de reclamos · Assistente de contestações</small></div>
+    <button id="reset" type="button">Nueva conversación</button>
+  </header>
+  <details id="demo"><summary>Demo (synthetic data)</summary><div id="demo-body">Loading…</div></details>
+  <div id="log" aria-live="polite"></div>
+  <form id="f">
+    <input id="m" autocomplete="off" placeholder="Escribe un mensaje / Digite uma mensagem" maxlength="1000">
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+<script>
+  const log = document.getElementById("log");
+  let cid = null;
+  try { cid = sessionStorage.getItem("iris_cid"); } catch (e) {}
+  function add(text, cls) {
+    const d = document.createElement("div");
+    d.className = "msg " + cls; d.textContent = text; log.appendChild(d); log.scrollTop = log.scrollHeight;
+  }
+  function newConversation() {
+    cid = "web:" + Math.random().toString(36).slice(2, 12);
+    try { sessionStorage.setItem("iris_cid", cid); } catch (e) {}
+    log.innerHTML = ""; add("Conversation " + cid, "meta");
+  }
+  if (!cid) newConversation(); else add("Conversation " + cid, "meta");
+  document.getElementById("reset").onclick = newConversation;
+  document.getElementById("f").onsubmit = async (e) => {
+    e.preventDefault();
+    const input = document.getElementById("m"); const text = input.value.trim(); if (!text) return;
+    input.value = ""; add(text, "me");
+    try {
+      const r = await fetch("/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversation_id: cid, message: text }) });
+      const data = await r.json();
+      (data.messages || []).forEach(m => add(m, "bot"));
+      if (data.handoff) add("Handoff " + data.handoff.handoff_id + " · trigger: " + data.handoff.trigger, "meta");
+      if (data.ended) add("Conversation ended (" + data.stage + ")", "meta");
+    } catch (err) { add("Network error, try again.", "meta"); }
+  };
+  fetch("/demo-info").then(r => r.json()).then(d => {
+    const rows = Object.entries(d.customers || {}).map(([k, v]) =>
+      `<div><code>${v.customer_id}</code> — ${k}: try disputing <em>${v.try}</em></div>`).join("");
+    document.getElementById("demo-body").innerHTML =
+      `<p>${d.note} OTP: <code>${d.otp}</code> · bank date: ${d.as_of}</p>${rows}
+       <p>Agent console: <a href="/handoffs">/handoffs</a> · KPIs: <a href="/metrics">/metrics</a></p>`;
+  }).catch(() => {});
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "csat_top2": {
+    "n_train": 86869,
+    "n_valid": 21365,
+    "n_test": 19622,
+    "best_iteration": 92,
+    "baseline": {
+      "by": "was_resolved",
+      "roc_auc": 0.7887,
+      "pr_auc": 0.8413,
+      "positive_rate": 0.6885
+    },
+    "lightgbm": {
+      "roc_auc": 0.7862,
+      "pr_auc": 0.8431,
+      "positive_rate": 0.6885
+    }
+  },
+  "fcr": {
+    "n_train": 464791,
+    "n_valid": 115755,
+    "n_test": 105750,
+    "best_iteration": 110,
+    "baseline": {
+      "by": "contact_reason",
+      "roc_auc": 0.7638,
+      "pr_auc": 0.8875,
+      "positive_rate": 0.7687
+    },
+    "lightgbm": {
+      "roc_auc": 0.7627,
+      "pr_auc": 0.8942,
+      "positive_rate": 0.7687
+    }
+  },
+  "escalated": {
+    "n_train": 464791,
+    "n_valid": 115755,
+    "n_test": 105750,
+    "best_iteration": 4,
+    "baseline": {
+      "by": "contact_reason",
+      "roc_auc": 0.5006,
+      "pr_auc": 0.0996,
+      "positive_rate": 0.0997
+    },
+    "lightgbm": {
+      "roc_auc": 0.5075,
+      "pr_auc": 0.1012,
+      "positive_rate": 0.0997
+    }
+  },
+  "cycle_time": {
+    "n_train": 399734,
+    "n_valid": 99447,
+    "n_test": 90881,
+    "best_iteration": 111,
+    "baseline": {
+      "by": "contact_reason",
+      "mae": 84.46,
+      "target_mean": 320.67
+    },
+    "lightgbm": {
+      "mae": 83.96,
+      "target_mean": 320.67
+    }
+  }
+}

@@ -1,0 +1,53 @@
+# IRIS deterministic policy. Enforced in code (policy engine + tool layer), never in prompts.
+version: 1
+
+dispute:
+  max_auto_amount_usd: 400          # above this, a human must open the dispute
+  max_transaction_age_days: 120     # relative to the bank "as-of" date (latest data timestamp)
+  allowed_statuses: [Approved, Pending]
+  disputable_types: [Purchase, Payment, Withdrawal, Adjustment]
+  fraud_score_threshold: 30         # fraud_score >= threshold or is_fraud -> fraud flag
+  unknown_amount_requires_human: true
+
+conversation:
+  max_clarification_turns: 2
+  min_classifier_confidence: 0.6
+  max_candidates_shown: 5
+  max_selection_attempts: 2
+  max_otp_attempts: 3
+
+repeat_contact:
+  window_days: 30
+  min_prior_unresolved: 1           # >= 1 open same-reason case in the window -> human
+  unresolved_statuses: [Open, In Process, Escalated, opened]
+
+intents:
+  automated: [dispute_unrecognized_charge, dispute_wrong_fee, dispute_status, balance_inquiry]
+  handoff: [card_block_request, credit_eligibility, talk_to_human]
+  conversational: [greeting]
+  decline: [out_of_scope]
+
+# Every trigger forces a structured handoff. priority: high | normal
+handoff_triggers:
+  fraud_flag:                 {enabled: true, priority: high}
+  amount_over_threshold:      {enabled: true, priority: normal}
+  customer_requested_human:   {enabled: true, priority: normal}
+  repeated_unresolved_reason: {enabled: true, priority: high}
+  unsupported_intent:         {enabled: true, priority: normal}
+  prompt_injection:           {enabled: true, priority: high}
+  tool_failure:               {enabled: true, priority: high}
+  not_understood:             {enabled: true, priority: normal}
+  result_insufficient:        {enabled: true, priority: normal}
+  auth_failed:                {enabled: true, priority: normal}
+  no_matching_transaction:    {enabled: true, priority: normal}
+
+disclosure:
+  # Fields of a transaction that may be shown to the authenticated owner.
+  transaction_fields: [date, merchant_or_type, amount, currency, status, product_last4]
+  never_disclose: [fraud_score, is_fraud, customer_id_of_others, full_product_id, response_code]
+
+reliability:
+  tool_max_attempts: 3
+  llm_max_attempts: 3
+  backoff_base_seconds: 0.2
+  backoff_max_seconds: 2.0

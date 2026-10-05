@@ -1,0 +1,316 @@
+{
+  "scorecard": [
+    {
+      "kpi": "fcr_rate",
+      "stage": "5. Result sufficient",
+      "definition": "Share of contacts resolved in the first contact",
+      "direction": "up",
+      "value": 0.7665,
+      "coverage": 1.0,
+      "sensitivity": 0.625,
+      "stability": 0.996,
+      "csat_link_raw": 0.996,
+      "csat_link_detail": "CSAT 3.00 vs 2.00",
+      "csat_link_adjusted": 1.0,
+      "score": 0.835
+    },
+    {
+      "kpi": "unnecessary_escalation_rate",
+      "stage": "6. Human escalation",
+      "definition": "Escalated contacts that were already resolvable",
+      "direction": "down",
+      "value": 0.767,
+      "coverage": 0.1,
+      "sensitivity": 0.618,
+      "stability": 0.988,
+      "csat_link_raw": 0.979,
+      "csat_link_detail": "CSAT 3.00 vs 2.02",
+      "csat_link_adjusted": 0.99,
+      "score": 0.649
+    },
+    {
+      "kpi": "negative_sentiment_rate",
+      "stage": "3. Understanding / clarification",
+      "definition": "Contacts with negative detected sentiment",
+      "direction": "down",
+      "value": 0.1924,
+      "coverage": 1.0,
+      "sensitivity": 1.819,
+      "stability": 0.984,
+      "csat_link_raw": 0.153,
+      "csat_link_detail": "CSAT 2.64 vs 2.79",
+      "csat_link_adjusted": 0.016,
+      "score": 0.604
+    },
+    {
+      "kpi": "repeat_same_reason_30d",
+      "stage": "3. Understanding / clarification",
+      "definition": "Repeat contact for the same reason within 30 days",
+      "direction": "down",
+      "value": 0.0268,
+      "coverage": 1.0,
+      "sensitivity": 1.393,
+      "stability": 0.95,
+      "csat_link_raw": 0.048,
+      "csat_link_detail": "CSAT 2.81 vs 2.76",
+      "csat_link_adjusted": 0.028,
+      "score": 0.545
+    },
+    {
+      "kpi": "followup_rate",
+      "stage": "3. Understanding / clarification",
+      "definition": "Contacts that need a follow-up (proxy of incomplete understanding)",
+      "direction": "down",
+      "value": 0.3483,
+      "coverage": 1.0,
+      "sensitivity": 1.172,
+      "stability": 0.989,
+      "csat_link_raw": 0.667,
+      "csat_link_detail": "CSAT 2.33 vs 3.00",
+      "csat_link_adjusted": 0.013,
+      "score": 0.515
+    },
+    {
+      "kpi": "aht_seconds",
+      "stage": "5. Result sufficient",
+      "definition": "Average handling time (seconds, synchronous channels only)",
+      "direction": "down",
+      "value": 321.4545,
+      "coverage": 0.86,
+      "sensitivity": 0.993,
+      "stability": 0.996,
+      "csat_link_raw": 0.17,
+      "csat_link_detail": "spearman -0.170",
+      "csat_link_adjusted": 0.007,
+      "score": 0.461
+    },
+    {
+      "kpi": "cycle_time_seconds",
+      "stage": "5. Result sufficient",
+      "definition": "Wait + handling time",
+      "direction": "down",
+      "value": 419.158,
+      "coverage": 0.86,
+      "sensitivity": 0.763,
+      "stability": 0.997,
+      "csat_link_raw": 0.153,
+      "csat_link_detail": "spearman -0.153",
+      "csat_link_adjusted": 0.007,
+      "score": 0.429
+    },
+    {
+      "kpi": "repeat_contact_7d",
+      "stage": "3. Understanding / clarification",
+      "definition": "Customer contacted again within 7 days of a previous contact",
+      "direction": "down",
+      "value": 0.0287,
+      "coverage": 1.0,
+      "sensitivity": 0.035,
+      "stability": 0.959,
+      "csat_link_raw": 0.012,
+      "csat_link_detail": "CSAT 2.75 vs 2.77",
+      "csat_link_adjusted": 0.028,
+      "score": 0.36
+    },
+    {
+      "kpi": "redirection_rate",
+      "stage": "6. Human escalation",
+      "definition": "Share of contacts transferred to a supervisor/human",
+      "direction": "down",
+      "value": 0.0996,
+      "coverage": 1.0,
+      "sensitivity": 0.024,
+      "stability": 0.978,
+      "csat_link_raw": 0.005,
+      "csat_link_detail": "CSAT 2.77 vs 2.76",
+      "csat_link_adjusted": 0.014,
+      "score": 0.356
+    },
+    {
+      "kpi": "survey_response_rate",
+      "stage": "7. Satisfaction survey",
+      "definition": "Contacts with any survey answer",
+      "direction": "up",
+      "value": 0.31,
+      "coverage": 1.0,
+      "sensitivity": 0.012,
+      "stability": 0.999,
+      "csat_link_raw": 0.0,
+      "csat_link_detail": "outcome itself",
+      "csat_link_adjusted": 0.0,
+      "score": 0.352
+    },
+    {
+      "kpi": "contacts_per_customer_90d",
+      "stage": "1. Contact",
+      "definition": "Prior contacts in the last 90 days (interaction frequency)",
+      "direction": "down",
+      "value": 0.3601,
+      "coverage": 1.0,
+      "sensitivity": 0.014,
+      "stability": 0.874,
+      "csat_link_raw": 0.003,
+      "csat_link_detail": "spearman -0.003",
+      "csat_link_adjusted": 0.009,
+      "score": 0.337
+    },
+    {
+      "kpi": "wait_seconds",
+      "stage": "1. Contact",
+      "definition": "Queue wait before attention (phone only)",
+      "direction": "down",
+      "value": 119.9371,
+      "coverage": 0.7,
+      "sensitivity": 0.01,
+      "stability": 0.996,
+      "csat_link_raw": 0.001,
+      "csat_link_detail": "spearman -0.001",
+      "csat_link_adjusted": 0.007,
+      "score": 0.294
+    },
+    {
+      "kpi": "csat_top2",
+      "stage": "7. Satisfaction survey",
+      "definition": "CSAT >= 3 on the observed 1-4 scale",
+      "direction": "up",
+      "value": 0.6866,
+      "coverage": 0.186,
+      "sensitivity": 0.491,
+      "stability": 0.99,
+      "csat_link_raw": 0.0,
+      "csat_link_detail": "outcome itself",
+      "csat_link_adjusted": 0.0,
+      "score": 0.253
+    },
+    {
+      "kpi": "missed_escalation_rate",
+      "stage": "6. Human escalation",
+      "definition": "Unresolved contacts that ended without a human handoff",
+      "direction": "down",
+      "value": 0.9006,
+      "coverage": 0.234,
+      "sensitivity": 0.006,
+      "stability": 0.995,
+      "csat_link_raw": 0.017,
+      "csat_link_detail": "CSAT 2.00 vs 2.02",
+      "csat_link_adjusted": 0.021,
+      "score": 0.205
+    }
+  ],
+  "by_reason": [
+    {
+      "contact_reason": "transactional",
+      "n": 240056,
+      "fcr": 0.9151,
+      "csat": 2.9131,
+      "redirection": 0.0993,
+      "cycle_s": 318.2048,
+      "missed_escalation": 0.9005
+    },
+    {
+      "contact_reason": "product",
+      "n": 150863,
+      "fcr": 0.8963,
+      "csat": 2.8955,
+      "redirection": 0.0996,
+      "cycle_s": 364.1059,
+      "missed_escalation": 0.9037
+    },
+    {
+      "contact_reason": "complaint",
+      "n": 117021,
+      "fcr": 0.436,
+      "csat": 2.4341,
+      "redirection": 0.1003,
+      "cycle_s": 532.592,
+      "missed_escalation": 0.9006
+    },
+    {
+      "contact_reason": "technical",
+      "n": 102899,
+      "fcr": 0.6993,
+      "csat": 2.6952,
+      "redirection": 0.1007,
+      "cycle_s": 458.2121,
+      "missed_escalation": 0.8986
+    },
+    {
+      "contact_reason": "commercial",
+      "n": 54879,
+      "fcr": 0.6521,
+      "csat": 2.6593,
+      "redirection": 0.0984,
+      "cycle_s": 637.817,
+      "missed_escalation": 0.9
+    },
+    {
+      "contact_reason": "retention",
+      "n": 20578,
+      "fcr": 0.6016,
+      "csat": 2.6064,
+      "redirection": 0.0985,
+      "cycle_s": 578.0002,
+      "missed_escalation": 0.9039
+    }
+  ],
+  "by_channel": [
+    {
+      "channel": "Phone",
+      "n": 583250,
+      "fcr": 0.7663,
+      "csat": 2.7649,
+      "aht_s": 321.4589,
+      "aht_missing": 0.0
+    },
+    {
+      "channel": "Email",
+      "n": 27543,
+      "fcr": 0.7681,
+      "csat": 2.7733,
+      "aht_s": NaN,
+      "aht_missing": 1.0
+    },
+    {
+      "channel": "App",
+      "n": 26364,
+      "fcr": 0.7713,
+      "csat": 2.7691,
+      "aht_s": 321.024,
+      "aht_missing": 0.8704
+    },
+    {
+      "channel": "WhatsApp",
+      "n": 22888,
+      "fcr": 0.7658,
+      "csat": 2.7535,
+      "aht_s": NaN,
+      "aht_missing": 1.0
+    },
+    {
+      "channel": "Web Chat",
+      "n": 22856,
+      "fcr": 0.7647,
+      "csat": 2.7704,
+      "aht_s": NaN,
+      "aht_missing": 1.0
+    },
+    {
+      "channel": "Web",
+      "n": 3395,
+      "fcr": 0.767,
+      "csat": 2.7762,
+      "aht_s": 321.1317,
+      "aht_missing": 0.0
+    }
+  ],
+  "disputes": {
+    "cases": 67095.0,
+    "sla_breach_rate": 0.2011,
+    "median_resolution_days": 16.0,
+    "median_first_response_hours": 38.0,
+    "backlog_share": 0.6997,
+    "repeat_complainer_rate": 0.1503,
+    "unassigned_rate": 0.3445,
+    "resolution_satisfaction_avg": 3.0209
+  }
+}

@@ -1,0 +1,15 @@
+kpi,stage,definition,direction,value,coverage,sensitivity,stability,csat_link_raw,csat_link_detail,csat_link_adjusted,score
+fcr_rate,5. Result sufficient,Share of contacts resolved in the first contact,up,0.7665,1.0,0.625,0.996,0.996,CSAT 3.00 vs 2.00,1.0,0.835
+unnecessary_escalation_rate,6. Human escalation,Escalated contacts that were already resolvable,down,0.767,0.1,0.618,0.988,0.979,CSAT 3.00 vs 2.02,0.99,0.649
+negative_sentiment_rate,3. Understanding / clarification,Contacts with negative detected sentiment,down,0.1924,1.0,1.819,0.984,0.153,CSAT 2.64 vs 2.79,0.016,0.604
+repeat_same_reason_30d,3. Understanding / clarification,Repeat contact for the same reason within 30 days,down,0.0268,1.0,1.393,0.95,0.048,CSAT 2.81 vs 2.76,0.028,0.545
+followup_rate,3. Understanding / clarification,Contacts that need a follow-up (proxy of incomplete understanding),down,0.3483,1.0,1.172,0.989,0.667,CSAT 2.33 vs 3.00,0.013,0.515
+aht_seconds,5. Result sufficient,"Average handling time (seconds, synchronous channels only)",down,321.4545,0.86,0.993,0.996,0.17,spearman -0.170,0.007,0.461
+cycle_time_seconds,5. Result sufficient,Wait + handling time,down,419.158,0.86,0.763,0.997,0.153,spearman -0.153,0.007,0.429
+repeat_contact_7d,3. Understanding / clarification,Customer contacted again within 7 days of a previous contact,down,0.0287,1.0,0.035,0.959,0.012,CSAT 2.75 vs 2.77,0.028,0.36
+redirection_rate,6. Human escalation,Share of contacts transferred to a supervisor/human,down,0.0996,1.0,0.024,0.978,0.005,CSAT 2.77 vs 2.76,0.014,0.356
+survey_response_rate,7. Satisfaction survey,Contacts with any survey answer,up,0.31,1.0,0.012,0.999,0.0,outcome itself,0.0,0.352
+contacts_per_customer_90d,1. Contact,Prior contacts in the last 90 days (interaction frequency),down,0.3601,1.0,0.014,0.874,0.003,spearman -0.003,0.009,0.337
+wait_seconds,1. Contact,Queue wait before attention (phone only),down,119.9371,0.7,0.01,0.996,0.001,spearman -0.001,0.007,0.294
+csat_top2,7. Satisfaction survey,CSAT >= 3 on the observed 1-4 scale,up,0.6866,0.186,0.491,0.99,0.0,outcome itself,0.0,0.253
+missed_escalation_rate,6. Human escalation,Unresolved contacts that ended without a human handoff,down,0.9006,0.234,0.006,0.995,0.017,CSAT 2.00 vs 2.02,0.021,0.205

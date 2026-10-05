@@ -1,0 +1,16 @@
+services:
+  iris:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      IRIS_DATA_BACKEND: demo
+      IRIS_RUNTIME_DB: /app/runtime/iris.sqlite
+    volumes:
+      - iris-runtime:/app/runtime
+
+volumes:
+  iris-runtime:

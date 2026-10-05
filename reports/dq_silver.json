@@ -1,0 +1,383 @@
+{
+  "branches": {
+    "rows_bronze": 350,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "branch_id": 0,
+      "branch_type": 0,
+      "city": 0,
+      "state": 0,
+      "country": 0,
+      "branch_status": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 350,
+    "orphan_fk": {}
+  },
+  "customers": {
+    "rows_bronze": 150000,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "customer_id": 0,
+      "document_type": 0,
+      "date_of_birth": 0,
+      "gender": 0,
+      "city": 0,
+      "state": 0,
+      "country": 0,
+      "detected_accent": 0.2988,
+      "segment": 0,
+      "credit_score": 0.1499,
+      "estimated_monthly_income": 0.2002,
+      "occupation": 0.1003,
+      "marital_status": 0.0797,
+      "education_level": 0.1197,
+      "registration_date": 0,
+      "registration_branch_id": 0,
+      "customer_status": 0,
+      "accepts_marketing": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 150000,
+    "orphan_fk": {
+      "registration_branch_id": 149995
+    }
+  },
+  "service_agents": {
+    "rows_bronze": 1200,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "agent_id": 0,
+      "native_accent": 0,
+      "country_of_origin": 0,
+      "assigned_branch_id": 0.3058,
+      "agent_type": 0,
+      "experience_level": 0,
+      "languages": 0,
+      "specialty": 0.3967,
+      "hire_date": 0,
+      "avg_csat": 0.1117,
+      "total_monthly_interactions": 0.0925,
+      "agent_status": 0,
+      "work_shift": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 1200,
+    "orphan_fk": {
+      "assigned_branch_id": 831
+    }
+  },
+  "products": {
+    "rows_bronze": 400000,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "product_id": 0,
+      "customer_id": 0,
+      "product_type": 0,
+      "currency": 0,
+      "current_balance": 0,
+      "credit_limit": 0.6867,
+      "interest_rate": 0.1002,
+      "opening_date": 0,
+      "product_status": 0,
+      "opening_channel": 0,
+      "has_linked_app": 0,
+      "days_past_due": 0.6866
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 400000,
+    "orphan_fk": {
+      "customer_id": 0
+    }
+  },
+  "call_center_interactions": {
+    "rows_bronze": 686296,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "interaction_id": 0,
+      "interaction_date": 0,
+      "process_date": 0,
+      "customer_id": 0,
+      "agent_id": 0,
+      "interaction_type": 0,
+      "channel": 0,
+      "contact_reason": 0,
+      "duration_seconds": 0.1402,
+      "wait_time_seconds": 0.2996,
+      "was_resolved": 0,
+      "requires_followup": 0,
+      "detected_sentiment": 0,
+      "sentiment_score": 0,
+      "customer_detected_accent": 0.2983,
+      "agent_used_accent": 0.2983,
+      "was_escalated": 0,
+      "mentioned_products": 0.6003,
+      "has_transcript": 0,
+      "has_recording": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 686296,
+    "orphan_fk": {
+      "customer_id": 0,
+      "agent_id": 0
+    }
+  },
+  "call_transcripts": {
+    "rows_bronze": 171321,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "transcript_id": 0,
+      "interaction_id": 0,
+      "customer_id": 0,
+      "agent_id": 0,
+      "full_text": 0,
+      "customer_text": 0,
+      "agent_text": 0,
+      "detected_language": 0,
+      "detected_accent": 0.3682,
+      "accent_confidence": 0.1001,
+      "detected_intents": 0.0494,
+      "main_topics": 0,
+      "audio_quality": 0.0504,
+      "duration_seconds": 0.1403
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 171321,
+    "orphan_fk": {
+      "interaction_id": 0
+    }
+  },
+  "satisfaction_surveys": {
+    "rows_bronze": 212759,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "survey_id": 0,
+      "survey_date": 0,
+      "interaction_id": 0,
+      "customer_id": 0,
+      "agent_id": 0,
+      "survey_type": 0,
+      "send_channel": 0,
+      "main_score": 0,
+      "nps_category": 0.7161,
+      "question_1_response": 0.4295,
+      "question_2_response": 0.617,
+      "question_3_response": 0.8115,
+      "open_comments": 0.5244,
+      "comment_sentiment": 0.5241,
+      "response_time_hours": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 212759,
+    "orphan_fk": {
+      "interaction_id": 0
+    }
+  },
+  "complaints": {
+    "rows_bronze": 67095,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "complaint_id": 0,
+      "creation_date": 0,
+      "customer_id": 0,
+      "case_type": 0,
+      "category": 0,
+      "subcategory": 0.0998,
+      "reception_channel": 0,
+      "affected_product_id": 0.3357,
+      "related_branch_id": 0.7142,
+      "origin_interaction_id": 1.0,
+      "description": 0,
+      "claimed_amount": 0.6758,
+      "currency": 0.6754,
+      "priority": 0,
+      "status": 0,
+      "assigned_agent_id": 0.3445,
+      "assignment_date": 0.3447,
+      "first_response_date": 0.3911,
+      "resolution_date": 0.7712,
+      "closing_date": 0.963,
+      "sla_breached": 0,
+      "resolution_days": 0.771,
+      "compensation_granted": 0.9308,
+      "resolution_satisfaction": 0.963,
+      "is_repeat_complainer": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 67095,
+    "orphan_fk": {
+      "customer_id": 0,
+      "affected_product_id": 0
+    }
+  },
+  "daily_exchange_rates": {
+    "rows_bronze": 13164,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "date": 0,
+      "source_currency": 0,
+      "target_currency": 0,
+      "exchange_rate": 0,
+      "buy_rate": 0,
+      "sell_rate": 0,
+      "source": 0
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 13164,
+    "orphan_fk": {}
+  },
+  "marketing_campaigns": {
+    "rows_bronze": 200,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "campaign_id": 0,
+      "campaign_name": 0,
+      "campaign_type": 0,
+      "campaign_objective": 0,
+      "promoted_product": 0.11,
+      "target_segment": 0.395,
+      "target_country": 0.555,
+      "start_date": 0,
+      "end_date": 0,
+      "budget": 0.155,
+      "campaign_status": 0,
+      "expected_conversion_rate": 0.07
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 200,
+    "orphan_fk": {}
+  },
+  "transactions": {
+    "rows_bronze": 4425008,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "transaction_id": 0,
+      "transaction_date": 0,
+      "process_date": 0,
+      "product_id": 0,
+      "customer_id": 0,
+      "transaction_type": 0,
+      "transaction_category": 0.6087,
+      "amount": 0,
+      "currency": 0,
+      "amount_usd": 0.5734,
+      "channel": 0,
+      "branch_id": 0.6863,
+      "merchant_name": 0.7674,
+      "merchant_category": 0.7675,
+      "transaction_country": 0,
+      "transaction_city": 0.1,
+      "transaction_status": 0,
+      "response_code": 0.05,
+      "is_fraud": 0,
+      "fraud_score": 0.2,
+      "latitude": 0.8063,
+      "longitude": 0.8063
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 4425008,
+    "orphan_fk": {
+      "customer_id": 0,
+      "product_id": 0
+    }
+  },
+  "digital_events": {
+    "rows_bronze": 15620994,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "event_id": 0,
+      "event_date": 0,
+      "process_date": 0,
+      "customer_id": 0.2398,
+      "session_id": 0,
+      "event_type": 0,
+      "event_category": 0,
+      "channel": 0,
+      "platform": 0.05,
+      "app_version": 0.4298,
+      "page_url": 0.05,
+      "action": 0.1,
+      "element_id": 0.15,
+      "product_id": 0.9078,
+      "event_value": 0.9491,
+      "duration_seconds": 0.6367,
+      "ip_country": 0,
+      "is_mobile": 0,
+      "utm_medium": 0.9463,
+      "utm_campaign": 0.9463
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 15620994,
+    "orphan_fk": {
+      "customer_id": 0
+    }
+  },
+  "campaign_sends": {
+    "rows_bronze": 1746801,
+    "missing_columns": [],
+    "cast_failures": {},
+    "rule_violations": {},
+    "null_rate": {
+      "send_id": 0,
+      "send_date": 0,
+      "process_date": 0,
+      "campaign_id": 0,
+      "customer_id": 0,
+      "send_channel": 0,
+      "subject": 0.6803,
+      "send_status": 0,
+      "was_delivered": 0,
+      "was_opened": 0.2772,
+      "was_clicked": 0,
+      "click_count": 0.944,
+      "had_conversion": 0,
+      "conversion_value": 0.9944,
+      "open_device": 0.749,
+      "failure_reason": 0.943,
+      "send_cost": 0.15
+    },
+    "rows_quarantined": 0,
+    "rows_duplicate_pk": 0,
+    "rows_silver": 1746801,
+    "orphan_fk": {
+      "customer_id": 0,
+      "campaign_id": 0
+    }
+  }
+}

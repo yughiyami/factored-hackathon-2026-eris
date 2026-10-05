@@ -1,0 +1,288 @@
+{"text": "no reconozco un cargo en mi tarjeta", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "no reconozco una compra que aparece en mi cuenta", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "no reconozco un consumo de la tarjeta", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "ar", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "hay un cargo que yo no hice", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "me aparece una compra que no hice", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "tengo un débito que no reconozco", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "ar", "family": "dispute_unrecognized_charge/es/direct_statement"}
+{"text": "revisando mi estado de cuenta vi un cargo de una tienda donde nunca he comprado", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/narrative"}
+{"text": "ayer me llegó una notificación de una compra pero yo no estaba usando la tarjeta", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/narrative"}
+{"text": "me fijé en el resumen y hay un consumo en un comercio que no conozco", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "ar", "family": "dispute_unrecognized_charge/es/narrative"}
+{"text": "oiga, me cobraron algo en un lugar que ni conozco", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/narrative"}
+{"text": "alguien usó mi tarjeta, hay una compra que no autoricé", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/narrative"}
+{"text": "¿por qué tengo un cargo que no reconozco?", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/question_form"}
+{"text": "¿qué es esta compra que me aparece si yo no la hice?", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/question_form"}
+{"text": "¿me pueden explicar un consumo que no hice?", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "ar", "family": "dispute_unrecognized_charge/es/question_form"}
+{"text": "¿cómo desconozco un cargo de mi tarjeta?", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "mx", "family": "dispute_unrecognized_charge/es/question_form"}
+{"text": "¿cómo reclamo una compra que no hice?", "intent": "dispute_unrecognized_charge", "lang": "es", "variant": "co", "family": "dispute_unrecognized_charge/es/question_form"}
+{"text": "não reconheço uma compra no meu cartão", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "tem uma cobrança que eu não fiz", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "apareceu um débito que não reconheço", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "não fiz essa compra no cartão", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "não reconheço esse lançamento na fatura", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "tem uma transação estranha na minha conta", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/direct_statement"}
+{"text": "olhando a fatura vi uma compra numa loja que nunca fui", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/narrative"}
+{"text": "ontem recebi notificação de compra mas eu não estava usando o cartão", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/narrative"}
+{"text": "alguém usou meu cartão, tem uma compra que não autorizei", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/narrative"}
+{"text": "chegou uma cobrança de um lugar que eu nem conheço", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/narrative"}
+{"text": "minha fatura veio com um valor de uma loja desconhecida", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/narrative"}
+{"text": "por que tem uma compra que eu não reconheço?", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/question_form"}
+{"text": "o que é essa cobrança se eu não comprei nada?", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/question_form"}
+{"text": "como faço para contestar uma compra que não fiz?", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/question_form"}
+{"text": "vocês podem me explicar esse débito estranho?", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/question_form"}
+{"text": "como cancelo uma compra que não fui eu que fiz?", "intent": "dispute_unrecognized_charge", "lang": "pt", "variant": "br", "family": "dispute_unrecognized_charge/pt/question_form"}
+{"text": "me hicieron un cobro indebido", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "me cobraron una comisión que no corresponde", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "me cobraron de más en la tarjeta", "intent": "dispute_wrong_fee", "lang": "es", "variant": "ar", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "me cobraron dos veces la misma compra", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "me están cobrando una cuota de manejo que no debería", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "me debitaron una comisión de mantenimiento indebida", "intent": "dispute_wrong_fee", "lang": "es", "variant": "ar", "family": "dispute_wrong_fee/es/direct_statement"}
+{"text": "pagué a tiempo y aun así me cargaron intereses moratorios", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/narrative"}
+{"text": "cancelé el seguro y me lo siguen cobrando cada mes", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/narrative"}
+{"text": "me cobraron el costo de mantenimiento aunque tengo la cuenta bonificada", "intent": "dispute_wrong_fee", "lang": "es", "variant": "ar", "family": "dispute_wrong_fee/es/narrative"}
+{"text": "en mi estado de cuenta aparece una comisión por retiro que no debía pagar", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/narrative"}
+{"text": "me descontaron una tarifa por transferencia que siempre ha sido gratis", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/narrative"}
+{"text": "¿por qué me cobraron esta comisión?", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/question_form"}
+{"text": "¿por qué me sale doble cobro en la misma compra?", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/question_form"}
+{"text": "¿qué es este cargo por mantenimiento de cuenta?", "intent": "dispute_wrong_fee", "lang": "es", "variant": "ar", "family": "dispute_wrong_fee/es/question_form"}
+{"text": "¿me pueden devolver una comisión mal cobrada?", "intent": "dispute_wrong_fee", "lang": "es", "variant": "mx", "family": "dispute_wrong_fee/es/question_form"}
+{"text": "¿cómo reclamo un cobro de más?", "intent": "dispute_wrong_fee", "lang": "es", "variant": "co", "family": "dispute_wrong_fee/es/question_form"}
+{"text": "me cobraram uma taxa indevida", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "fui cobrado duas vezes pela mesma compra", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "cobraram a mais no meu cartão", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "estão cobrando uma tarifa que não deveriam", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "veio uma anuidade que eu não contratei", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "cobraram uma tarifa de manutenção indevida", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/direct_statement"}
+{"text": "paguei em dia e mesmo assim cobraram juros de atraso", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/narrative"}
+{"text": "cancelei o seguro e continuam cobrando todo mês", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/narrative"}
+{"text": "minha conta é isenta mas veio tarifa de manutenção", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/narrative"}
+{"text": "na fatura apareceu uma taxa de saque que eu não devia pagar", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/narrative"}
+{"text": "descontaram uma taxa de transferência que sempre foi grátis", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/narrative"}
+{"text": "por que cobraram essa taxa?", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/question_form"}
+{"text": "por que aparece cobrança dupla na mesma compra?", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/question_form"}
+{"text": "que tarifa é essa na minha conta?", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/question_form"}
+{"text": "vocês podem devolver uma taxa cobrada errado?", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/question_form"}
+{"text": "como reclamo de uma cobrança a mais?", "intent": "dispute_wrong_fee", "lang": "pt", "variant": "br", "family": "dispute_wrong_fee/pt/question_form"}
+{"text": "¿cómo va mi reclamo?", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/status_question"}
+{"text": "¿en qué estado está mi disputa?", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/status_question"}
+{"text": "¿cómo va el reclamo que hice?", "intent": "dispute_status", "lang": "es", "variant": "ar", "family": "dispute_status/es/status_question"}
+{"text": "quiero saber el estatus de mi aclaración", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/status_question"}
+{"text": "¿ya resolvieron mi queja?", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/status_question"}
+{"text": "¿hay novedades de mi reclamo?", "intent": "dispute_status", "lang": "es", "variant": "ar", "family": "dispute_status/es/status_question"}
+{"text": "hace una semana levanté un reclamo y no me han dicho nada", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/follow_up"}
+{"text": "puse una queja por un cobro y quiero saber qué pasó", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/follow_up"}
+{"text": "hice un reclamo por un consumo y sigo esperando respuesta", "intent": "dispute_status", "lang": "es", "variant": "ar", "family": "dispute_status/es/follow_up"}
+{"text": "ya había reportado un cargo, ¿en qué quedó?", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/follow_up"}
+{"text": "les escribí por una disputa y no he tenido respuesta", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/follow_up"}
+{"text": "tengo un número de caso y quiero saber cómo va", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/case_number"}
+{"text": "quiero consultar mi caso de disputa", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/case_number"}
+{"text": "necesito el seguimiento de mi caso", "intent": "dispute_status", "lang": "es", "variant": "ar", "family": "dispute_status/es/case_number"}
+{"text": "dame el estado de mi folio de aclaración", "intent": "dispute_status", "lang": "es", "variant": "mx", "family": "dispute_status/es/case_number"}
+{"text": "consultar radicado de mi reclamo", "intent": "dispute_status", "lang": "es", "variant": "co", "family": "dispute_status/es/case_number"}
+{"text": "como está minha contestação?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "qual o status da minha reclamação?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "em que pé está minha disputa?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "quero saber o andamento do meu pedido de contestação", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "já resolveram minha reclamação?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "tem novidade da minha contestação?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/status_question"}
+{"text": "abri uma reclamação semana passada e ninguém me respondeu", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/follow_up"}
+{"text": "fiz uma contestação de compra e quero saber o que aconteceu", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/follow_up"}
+{"text": "reclamei de uma cobrança e continuo esperando", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/follow_up"}
+{"text": "já tinha reportado uma compra, como ficou?", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/follow_up"}
+{"text": "mandei mensagem sobre uma disputa e não tive retorno", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/follow_up"}
+{"text": "tenho o número do protocolo e quero saber como está", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/case_number"}
+{"text": "quero consultar meu caso de contestação", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/case_number"}
+{"text": "preciso acompanhar meu protocolo", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/case_number"}
+{"text": "me passa o status do meu protocolo de reclamação", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/case_number"}
+{"text": "consultar protocolo da minha disputa", "intent": "dispute_status", "lang": "pt", "variant": "br", "family": "dispute_status/pt/case_number"}
+{"text": "quiero bloquear mi tarjeta", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/block_direct"}
+{"text": "necesito bloquear la tarjeta débito", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/block_direct"}
+{"text": "bloqueen mi tarjeta por favor", "intent": "card_block_request", "lang": "es", "variant": "ar", "family": "card_block_request/es/block_direct"}
+{"text": "bloqueo de tarjeta urgente", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/block_direct"}
+{"text": "quiero bloquear mi tarjeta de crédito ya", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/block_direct"}
+{"text": "necesito dar de baja la tarjeta", "intent": "card_block_request", "lang": "es", "variant": "ar", "family": "card_block_request/es/block_direct"}
+{"text": "me robaron la cartera con la tarjeta", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/lost_stolen"}
+{"text": "perdí mi tarjeta en el bus", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/lost_stolen"}
+{"text": "me afanaron la billetera con las tarjetas", "intent": "card_block_request", "lang": "es", "variant": "ar", "family": "card_block_request/es/lost_stolen"}
+{"text": "se me perdió la tarjeta, ¿qué hago?", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/lost_stolen"}
+{"text": "me robaron el celular y la tarjeta", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/lost_stolen"}
+{"text": "congelen mi tarjeta mientras la encuentro", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/freeze"}
+{"text": "quiero apagar temporalmente la tarjeta", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/freeze"}
+{"text": "pausen la tarjeta hasta que la encuentre", "intent": "card_block_request", "lang": "es", "variant": "ar", "family": "card_block_request/es/freeze"}
+{"text": "desactiven mi plástico", "intent": "card_block_request", "lang": "es", "variant": "mx", "family": "card_block_request/es/freeze"}
+{"text": "suspendan mi tarjeta por seguridad", "intent": "card_block_request", "lang": "es", "variant": "co", "family": "card_block_request/es/freeze"}
+{"text": "quero bloquear meu cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "preciso bloquear o cartão de débito", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "bloqueiem meu cartão por favor", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "bloqueio de cartão urgente", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "quero bloquear meu cartão de crédito agora", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "preciso cancelar o cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/block_direct"}
+{"text": "roubaram minha carteira com o cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/lost_stolen"}
+{"text": "perdi meu cartão no ônibus", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/lost_stolen"}
+{"text": "furtaram minha bolsa com os cartões", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/lost_stolen"}
+{"text": "perdi o cartão, o que faço?", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/lost_stolen"}
+{"text": "roubaram meu celular e o cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/lost_stolen"}
+{"text": "congelem meu cartão enquanto eu procuro", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/freeze"}
+{"text": "quero desligar temporariamente o cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/freeze"}
+{"text": "pausem o cartão até eu encontrar", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/freeze"}
+{"text": "desativem meu cartão", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/freeze"}
+{"text": "suspendam meu cartão por segurança", "intent": "card_block_request", "lang": "pt", "variant": "br", "family": "card_block_request/pt/freeze"}
+{"text": "¿cuál es mi saldo?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/direct"}
+{"text": "quiero consultar mi saldo", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/direct"}
+{"text": "¿cuánta plata tengo en la cuenta?", "intent": "balance_inquiry", "lang": "es", "variant": "ar", "family": "balance_inquiry/es/direct"}
+{"text": "¿cuánto tengo disponible?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/direct"}
+{"text": "dime el saldo de mi cuenta de ahorros", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/direct"}
+{"text": "¿cuánto me queda en la caja de ahorro?", "intent": "balance_inquiry", "lang": "es", "variant": "ar", "family": "balance_inquiry/es/direct"}
+{"text": "¿cuánto debo en la tarjeta de crédito?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/card_balance"}
+{"text": "¿cuál es el cupo disponible de mi tarjeta?", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/card_balance"}
+{"text": "¿cuánto tengo de saldo en la tarjeta?", "intent": "balance_inquiry", "lang": "es", "variant": "ar", "family": "balance_inquiry/es/card_balance"}
+{"text": "¿cuál es mi límite disponible?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/card_balance"}
+{"text": "quiero saber cuánto he gastado de mi cupo", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/card_balance"}
+{"text": "oye, ¿cómo ando de lana?", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/casual"}
+{"text": "parce, ¿cuánto hay en mi cuenta?", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/casual"}
+{"text": "che, ¿cuánto tengo?", "intent": "balance_inquiry", "lang": "es", "variant": "ar", "family": "balance_inquiry/es/casual"}
+{"text": "chécame el saldo porfa", "intent": "balance_inquiry", "lang": "es", "variant": "mx", "family": "balance_inquiry/es/casual"}
+{"text": "¿me regala el saldo?", "intent": "balance_inquiry", "lang": "es", "variant": "co", "family": "balance_inquiry/es/casual"}
+{"text": "qual é meu saldo?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "quero consultar meu saldo", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "quanto dinheiro tenho na conta?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "quanto tenho disponível?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "me diz o saldo da poupança", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "quanto sobrou na conta corrente?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/direct"}
+{"text": "quanto devo no cartão de crédito?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/card_balance"}
+{"text": "qual o limite disponível do meu cartão?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/card_balance"}
+{"text": "quanto tenho de saldo no cartão?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/card_balance"}
+{"text": "qual meu limite disponível?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/card_balance"}
+{"text": "quero saber quanto já gastei do limite", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/card_balance"}
+{"text": "e aí, como tá minha grana?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/casual"}
+{"text": "quanto tem na minha conta?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/casual"}
+{"text": "me fala quanto eu tenho", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/casual"}
+{"text": "confere meu saldo aí pfv", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/casual"}
+{"text": "me passa o saldo?", "intent": "balance_inquiry", "lang": "pt", "variant": "br", "family": "balance_inquiry/pt/casual"}
+{"text": "quiero pedir un préstamo personal", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/loan"}
+{"text": "¿puedo sacar un crédito de libre inversión?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/loan"}
+{"text": "quiero un préstamo, ¿me lo dan?", "intent": "credit_eligibility", "lang": "es", "variant": "ar", "family": "credit_eligibility/es/loan"}
+{"text": "¿soy candidato para un crédito?", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/loan"}
+{"text": "¿me aprueban un préstamo?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/loan"}
+{"text": "¿cuánto me prestan?", "intent": "credit_eligibility", "lang": "es", "variant": "ar", "family": "credit_eligibility/es/loan"}
+{"text": "quiero un aumento de línea de crédito", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/limit_increase"}
+{"text": "necesito un aumento de cupo en la tarjeta", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/limit_increase"}
+{"text": "quiero que me suban el límite", "intent": "credit_eligibility", "lang": "es", "variant": "ar", "family": "credit_eligibility/es/limit_increase"}
+{"text": "¿me pueden subir el límite de la tarjeta?", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/limit_increase"}
+{"text": "¿cómo pido más cupo?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/limit_increase"}
+{"text": "quiero información de crédito hipotecario", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/mortgage"}
+{"text": "¿puedo pedir un crédito de vivienda?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/mortgage"}
+{"text": "¿tienen créditos hipotecarios?", "intent": "credit_eligibility", "lang": "es", "variant": "ar", "family": "credit_eligibility/es/mortgage"}
+{"text": "quiero financiamiento para un carro", "intent": "credit_eligibility", "lang": "es", "variant": "mx", "family": "credit_eligibility/es/mortgage"}
+{"text": "¿me financian una moto?", "intent": "credit_eligibility", "lang": "es", "variant": "co", "family": "credit_eligibility/es/mortgage"}
+{"text": "quero pedir um empréstimo pessoal", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "posso fazer um empréstimo?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "quero um empréstimo, vocês aprovam?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "sou elegível para crédito?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "vocês me aprovam um empréstimo?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "quanto vocês me emprestam?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/loan"}
+{"text": "quero aumento de limite do cartão", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/limit_increase"}
+{"text": "preciso de mais limite no cartão", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/limit_increase"}
+{"text": "quero que aumentem meu limite", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/limit_increase"}
+{"text": "vocês podem subir o limite do cartão?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/limit_increase"}
+{"text": "como peço mais limite?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/limit_increase"}
+{"text": "quero informação de financiamento imobiliário", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/mortgage"}
+{"text": "posso pedir financiamento de casa?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/mortgage"}
+{"text": "vocês têm crédito imobiliário?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/mortgage"}
+{"text": "quero financiar um carro", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/mortgage"}
+{"text": "vocês financiam moto?", "intent": "credit_eligibility", "lang": "pt", "variant": "br", "family": "credit_eligibility/pt/mortgage"}
+{"text": "quiero hablar con un asesor", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/agent"}
+{"text": "comuníqueme con un agente", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/agent"}
+{"text": "pasame con un operador", "intent": "talk_to_human", "lang": "es", "variant": "ar", "family": "talk_to_human/es/agent"}
+{"text": "necesito un ejecutivo", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/agent"}
+{"text": "quiero que me atienda un asesor", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/agent"}
+{"text": "quiero hablar con alguien del banco", "intent": "talk_to_human", "lang": "es", "variant": "ar", "family": "talk_to_human/es/agent"}
+{"text": "quiero hablar con una persona real", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/human"}
+{"text": "no quiero un robot, quiero un humano", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/human"}
+{"text": "dejame hablar con una persona", "intent": "talk_to_human", "lang": "es", "variant": "ar", "family": "talk_to_human/es/human"}
+{"text": "¿hay alguien de carne y hueso?", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/human"}
+{"text": "páseme con un ser humano", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/human"}
+{"text": "ya me cansé del bot, quiero una persona", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/frustration"}
+{"text": "esto no sirve, comuníqueme con alguien", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/frustration"}
+{"text": "no me entendés, quiero hablar con alguien", "intent": "talk_to_human", "lang": "es", "variant": "ar", "family": "talk_to_human/es/frustration"}
+{"text": "el bot no me ayuda, pásame con alguien", "intent": "talk_to_human", "lang": "es", "variant": "mx", "family": "talk_to_human/es/frustration"}
+{"text": "no me resolviste nada, quiero un asesor", "intent": "talk_to_human", "lang": "es", "variant": "co", "family": "talk_to_human/es/frustration"}
+{"text": "quero falar com um atendente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "me transfere para um atendente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "me passa para um operador", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "preciso de um gerente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "quero ser atendido por um atendente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "quero falar com alguém do banco", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/agent"}
+{"text": "quero falar com uma pessoa de verdade", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/human"}
+{"text": "não quero robô, quero um humano", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/human"}
+{"text": "me deixa falar com uma pessoa", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/human"}
+{"text": "tem alguém de carne e osso aí?", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/human"}
+{"text": "me passa para um ser humano", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/human"}
+{"text": "cansei do robô, quero uma pessoa", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/frustration"}
+{"text": "isso não funciona, me passa para alguém", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/frustration"}
+{"text": "você não me entende, quero falar com alguém", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/frustration"}
+{"text": "o bot não ajuda, me transfere", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/frustration"}
+{"text": "não resolveu nada, quero um atendente", "intent": "talk_to_human", "lang": "pt", "variant": "br", "family": "talk_to_human/pt/frustration"}
+{"text": "hola", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello"}
+{"text": "buenas", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello"}
+{"text": "hola, ¿qué tal?", "intent": "greeting", "lang": "es", "variant": "ar", "family": "greeting/es/hello"}
+{"text": "buenos días", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello"}
+{"text": "buenas tardes", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello"}
+{"text": "buenas noches", "intent": "greeting", "lang": "es", "variant": "ar", "family": "greeting/es/hello"}
+{"text": "qué onda", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello_casual"}
+{"text": "quiubo", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello_casual"}
+{"text": "buenas, che", "intent": "greeting", "lang": "es", "variant": "ar", "family": "greeting/es/hello_casual"}
+{"text": "hola hola", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello_casual"}
+{"text": "holi", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello_casual"}
+{"text": "buen día, ¿cómo están?", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello_polite"}
+{"text": "muy buenas tardes", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello_polite"}
+{"text": "hola, buen día", "intent": "greeting", "lang": "es", "variant": "ar", "family": "greeting/es/hello_polite"}
+{"text": "saludos", "intent": "greeting", "lang": "es", "variant": "mx", "family": "greeting/es/hello_polite"}
+{"text": "hola, ¿cómo le va?", "intent": "greeting", "lang": "es", "variant": "co", "family": "greeting/es/hello_polite"}
+{"text": "olá", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "oi", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "oi, tudo bem?", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "bom dia", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "boa tarde", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "boa noite", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello"}
+{"text": "e aí", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_casual"}
+{"text": "opa", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_casual"}
+{"text": "fala aí", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_casual"}
+{"text": "oi oi", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_casual"}
+{"text": "oie", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_casual"}
+{"text": "bom dia, como vão?", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_polite"}
+{"text": "muito boa tarde", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_polite"}
+{"text": "olá, bom dia", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_polite"}
+{"text": "saudações", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_polite"}
+{"text": "oi, como vai?", "intent": "greeting", "lang": "pt", "variant": "br", "family": "greeting/pt/hello_polite"}
+{"text": "¿cómo va a estar el clima mañana?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/chit_chat"}
+{"text": "cuéntame un chiste", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/chit_chat"}
+{"text": "¿quién ganó el partido de ayer?", "intent": "out_of_scope", "lang": "es", "variant": "ar", "family": "out_of_scope/es/chit_chat"}
+{"text": "¿me recomiendas una película?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/chit_chat"}
+{"text": "¿cuál es la capital de Francia?", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/chit_chat"}
+{"text": "¿qué hora es en Tokio?", "intent": "out_of_scope", "lang": "es", "variant": "ar", "family": "out_of_scope/es/chit_chat"}
+{"text": "escríbeme un poema de amor", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/other_tasks"}
+{"text": "¿me ayudas con la tarea de matemáticas?", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/other_tasks"}
+{"text": "pasame una receta de empanadas", "intent": "out_of_scope", "lang": "es", "variant": "ar", "family": "out_of_scope/es/other_tasks"}
+{"text": "¿cómo instalo whatsapp en la computadora?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/other_tasks"}
+{"text": "tradúceme esto al inglés", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/other_tasks"}
+{"text": "quiero pedir una pizza", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/unrelated_services"}
+{"text": "¿dónde queda la notaría más cercana?", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/unrelated_services"}
+{"text": "necesito un turno con el médico", "intent": "out_of_scope", "lang": "es", "variant": "ar", "family": "out_of_scope/es/unrelated_services"}
+{"text": "¿venden boletos de avión?", "intent": "out_of_scope", "lang": "es", "variant": "mx", "family": "out_of_scope/es/unrelated_services"}
+{"text": "quiero cambiar mi plan de celular", "intent": "out_of_scope", "lang": "es", "variant": "co", "family": "out_of_scope/es/unrelated_services"}
+{"text": "como vai estar o tempo amanhã?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "me conta uma piada", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "quem ganhou o jogo ontem?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "me indica um filme?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "qual é a capital da França?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "que horas são em Tóquio?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/chit_chat"}
+{"text": "escreve um poema de amor", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/other_tasks"}
+{"text": "me ajuda com a lição de matemática?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/other_tasks"}
+{"text": "me passa uma receita de coxinha", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/other_tasks"}
+{"text": "como instalo o whatsapp no computador?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/other_tasks"}
+{"text": "traduz isso para o inglês", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/other_tasks"}
+{"text": "quero pedir uma pizza", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/unrelated_services"}
+{"text": "onde fica o cartório mais perto?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/unrelated_services"}
+{"text": "preciso marcar consulta no médico", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/unrelated_services"}
+{"text": "vocês vendem passagem de avião?", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/unrelated_services"}
+{"text": "quero mudar meu plano de celular", "intent": "out_of_scope", "lang": "pt", "variant": "br", "family": "out_of_scope/pt/unrelated_services"}

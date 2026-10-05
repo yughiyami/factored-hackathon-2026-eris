@@ -1,0 +1,18 @@
+# Render Blueprint: deploys the bot with the committed demo DB (no data lake needed).
+services:
+  - type: web
+    name: iris-bot
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: IRIS_SESSION_SECRET
+        generateValue: true
+      - key: IRIS_LLM_MODE
+        value: auto            # uses Claude when ANTHROPIC_API_KEY is set, MockLLM otherwise
+      - key: IRIS_DATA_BACKEND
+        value: demo
+      - key: ANTHROPIC_API_KEY
+        sync: false            # set in the Render dashboard; never commit it
