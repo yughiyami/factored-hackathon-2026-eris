@@ -13,8 +13,10 @@ services:
       - key: IRIS_LLM_MODE
         value: auto            # uses the provider below when its key is set, MockLLM otherwise
       - key: IRIS_LLM_PROVIDER
-        value: deepseek        # deepseek-v4-pro orchestrator + deepseek-flash classifier
+        value: anthropic       # Claude in production; set to deepseek to switch providers
       - key: IRIS_DATA_BACKEND
         value: demo
-      - key: DEEPSEEK_API_KEY
+      - key: ANTHROPIC_API_KEY
         sync: false            # set in the Render dashboard; never commit it
+      - key: DEEPSEEK_API_KEY
+        sync: false            # optional: only needed when IRIS_LLM_PROVIDER=deepseek
